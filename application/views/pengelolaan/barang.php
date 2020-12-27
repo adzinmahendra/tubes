@@ -12,7 +12,6 @@
       </div>
           <form action="<?= base_url()?>index.php/Kelola/UpdateBarang" method="post">
           <div class="card-body">
-            <p>Modal body text goes here.</p>
                 <?php
                 foreach($barang as $b){
                 ?>
@@ -45,24 +44,48 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Sumber</label>
                     <select class="form-control custom-select bg-light small" name="sumber">
-                      <option selected>Pilih Sumber Barang</option>
+                      <option>Pilih Sumber Barang</option>
                       <?php
                       foreach ($sumber as $s) {
                           // code...
                       ?>
-                      <option value="<?= $s->id_sumber; ?>"><?= $s->nama_sumber ?></option>
+                      <option value="<?= $s->id_sumber; ?>"
+                      <?php if ($b->id_sumber != 0) {
+                          echo 'selected';
+                        }?>
+                      ><?= $s->nama_sumber ?></option>
                       <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Gudang</label>
                     <select class="form-control custom-select bg-light small" name="gudang">
-                      <option selected>Pilih Gudang</option>
+                      <option>Pilih Gudang</option>
                       <?php
                       foreach ($gudang as $g) {
                           // code...
                       ?>
-                      <option value="<?= $g->id_gudang; ?>"><?= $g->id_gudang; ?> - <?= $g->keterangan_gudang; ?></option>
+                      <option value="<?= $g->id_gudang; ?>"
+                        <?php if ($b->id_gudang != 0) {
+                          echo 'selected';
+                        }?>
+                      ><?= $g->id_gudang; ?> - <?= $g->keterangan_gudang; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Kategori</label>
+                    <select class="form-control custom-select bg-light small" name="kategori">
+                      <option>Pilih Kategori</option>
+                      <?php
+                      foreach ($kategori as $k) {
+                          // code...
+                      ?>
+                      <option value="<?= $k->id_kategori; ?>"
+                      <?php if ($b->id_kategori != 0) {
+                          echo 'selected';
+                        }?>
+                        ><?= $k->id_kategori; ?> - <?= $k->kategori; ?></option>
                       <?php } ?>
                     </select>
                 </div>

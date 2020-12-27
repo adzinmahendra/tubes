@@ -80,6 +80,7 @@ class Kelola extends CI_Controller {
 		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
 		$data['sumber'] = $this->M_All->get('sumber')->result();
 		$data['gudang'] = $this->M_All->get('gudang')->result();
+		$data['kategori'] = $this->M_All->get('kategori')->result();
 		$this->load->view('admin/header');
 		$this->load->view('pengelolaan/barang', $data);
 		$this->load->view('admin/footer');
@@ -94,6 +95,7 @@ class Kelola extends CI_Controller {
 		$keterangan = $this->input->post('keterangan_barang');
 		$sumber = $this->input->post('sumber');
 		$gudang = $this->input->post('gudang');
+		$kategori = $this->input->post('kategori');
 
 		$data = array(
 			'nama_barang' => $nama_barang,
@@ -101,7 +103,8 @@ class Kelola extends CI_Controller {
 			'keterangan_barang' => $keterangan,
 			'tanggal' => $tanggal,
 			'id_sumber' => $sumber,
-			'id_gudang' => $gudang
+			'id_gudang' => $gudang,
+			'id_kategori' => $kategori
 		);
 
 		$where = array('id_barang' => $id_barang);
@@ -194,6 +197,7 @@ class Kelola extends CI_Controller {
 	public function Kategori()
 	{
 		$data['kategori'] = $this->M_All->get('kategori')->result();
+		$data['barang'] = $this->M_All->get('barang')->result();
 		$this->load->view('admin/header');
 		$this->load->view('pengelolaan/kategori', $data);
 		$this->load->view('admin/footer');
@@ -208,5 +212,17 @@ class Kelola extends CI_Controller {
 		
 		redirect('kelola/kategori');
 
+	}
+
+	public function cekListKategori()
+	{
+		
+	}
+
+	public function hapusKategori($id)
+	{
+		$where = array('id_kategori' => $id);
+		$this->M_All->delete($where,'kategori');
+		redirect('kelola/kategori');
 	}
 }

@@ -32,19 +32,31 @@
       </div>
   </div>
   <!-- <?php echo print_r($barang) ?> -->
+    <?php
+    foreach($kategori as $k){
+    ?>
+    <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#collapseCardExample<?= $k->id_kategori?>" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+            <h6 class="m-0 font-weight-bold text-primary"><?= $k->kategori?></h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse" id="collapseCardExample<?= $k->id_kategori?>" style="">
+            <div class="card-body">
                 <?php
-                foreach($kategori as $k){
-                ?>
-  <div class="card mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-success"><?= $k->kategori?></h6>
-        </div>
-        <div class="card-body">
+                // print_r($barang);
+                    foreach ($barang as $b) {
+                        if ($b->id_kategori == $k->id_kategori) {
+                            echo $b->nama_barang;
+                        }
+                    }
 
+                ?>
+            </div>
         </div>
         <div class="card-footer d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary position-bottom">Cek</button>
-            <button type="submit" class="btn btn-danger position-bottom">Hapus</button>
+            <a href="<?= base_url()?>index.php/Kelola/cekListKategori/<?= $k->id_kategori?>" class="btn btn-primary position-bottom">Cek</a>
+            <a href="<?= base_url()?>index.php/Kelola/hapusKategori/<?= $k->id_kategori?>" class="btn btn-danger position-bottom">Hapus</a>
         </div>
     </div>
     <?php } ?>
