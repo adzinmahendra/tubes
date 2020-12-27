@@ -1,0 +1,10 @@
+referensi
+
+cart ajax
+http://mfikri.com/artikel/membuat-shopping-cart-dengan-codeigniter-dan-ajax.html
+
+counter
+https://stackoverflow.com/questions/28958307/php-codeigniter-count-rows
+
+query builder
+https://codeigniter.com/userguide3/database/query_builder.html
