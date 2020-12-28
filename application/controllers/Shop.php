@@ -248,4 +248,15 @@ class Shop extends CI_Controller {
 		$this->load->view('shop/category', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function isiKategori($id)
+	{
+		$where = array(
+			'id_kategori' => $id,
+		);
+		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
+		$this->load->view('template/header');
+		$this->load->view('shop/home', $data);
+		$this->load->view('template/footer');
+	}
 }

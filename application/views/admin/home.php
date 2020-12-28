@@ -12,7 +12,6 @@
   <!-- Content Row -->
 
 
-<<<<<<< HEAD
     <!-- Area Chart -->
     <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
@@ -202,9 +201,6 @@
 
 </div>
 <!-- /.container-fluid -->
-=======
-
->>>>>>> 60eae9f9306405ef2a438fa59677b89c413f5f61
 
 </div>
 <!-- End of Main Content -->

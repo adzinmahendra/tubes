@@ -52,12 +52,9 @@
                                   <a href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $k->id_konsumen ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                                       <i class="fas fa-eye fa-sm text-white-50"></i> Lihat pesanan
                                   </a>
-<<<<<<< HEAD
                                   <!-- <a href="<?= base_url() ?>index.php/konsumen/hapusKonsumen/<?= $k->id_konsumen ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
                                       <i class="fas fa-trash fa-sm text-white-50"></i> Hapus
                                   </a> -->
-=======
->>>>>>> 60eae9f9306405ef2a438fa59677b89c413f5f61
                               </td>
                           </tr>
                           <?php $no++; } ?>
