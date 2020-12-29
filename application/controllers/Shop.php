@@ -16,6 +16,22 @@ class Shop extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function search()
+	{
+		// Ambil data namaBarang yang dikirim via ajax post
+		$keyword = $this->input->post('keyword');
+		$barang = $this->M_All->search($keyword);
+		
+		// Kita load file view.php sambil mengirim data barang hasil query function search di M_All
+		$hasil = $this->load->view('shop/find', array('barang'=>$barang));
+		
+		// Buat sebuah array
+		$callback = array(
+		  'hasil' => $hasil, // Set array hasil dengan isi dari find.php yang diload tadi
+		);
+		echo json_encode($callback); // konversi varibael $callback menjadi JSON
+	}
+
 	public function info($id_barang)
 	{
 		$where = array('id_barang' => $id_barang);

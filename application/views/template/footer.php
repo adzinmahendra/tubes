@@ -94,3 +94,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url()?>assets/js/google-map.js"></script>
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
+  <script src="<?php echo base_url()?>assets/js/config.js"></script>
+  <script>
+    var baseurl = "<?php echo base_url("index.php/"); ?>"; // Buat variabel baseurl untuk nanti di akses pada file config.js
+    </script>
