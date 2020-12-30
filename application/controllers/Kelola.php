@@ -139,10 +139,12 @@ class Kelola extends CI_Controller {
 	{
 		$nama_sumber = $this->input->post('nama_sumber');
 		$alamat_sumber = $this->input->post('alamat_sumber');
+		$no_telepon = $this->input->post('no_telepon');
 
 		$data = array(
 			'nama_sumber' => $nama_sumber,
-			'alamat_sumber' => $alamat_sumber
+			'alamat_sumber' => $alamat_sumber,
+			'no_telepon' => $$no_telepon
 		);
 
 		$this->M_All->insert('sumber', $data);

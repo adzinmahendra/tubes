@@ -39,6 +39,10 @@
                     <label for="exampleFormControlInput1">Alamat Sumber</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Alamat Sumber" name="alamat_sumber" aria-label="alamatSumber" aria-describedby="basic-addon2">
                 </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">No. Telepon</label>
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Telepon Sumber" name="no_telp" aria-label="teleponSumber" aria-describedby="basic-addon2">
+                </div>
                 <!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Keterangan Market</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Keterangan Pasar" name="keterangan_market" aria-label="keteranganPasar" aria-describedby="basic-addon2">
@@ -65,6 +69,7 @@
                           <th>No.</th>
                           <th>Nama Sumber</th>
                           <th>Alamat</th>
+                          <th>No. Telepon</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -87,6 +92,7 @@
                               <td><?= $no;?></td>
                               <td><?= $s->nama_sumber; ?></td>
                               <td><?= $s->alamat_sumber; ?></td>
+                              <td><?= $s->no_telepon; ?></td>
                               <td>
                                   <a href="<?= base_url() ?>index.php/kelola/editSumber/<?= $s->id_sumber ?>" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                                       <i class="fas fa-pen fa-sm text-white-50"></i> Edit
