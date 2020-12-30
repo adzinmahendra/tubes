@@ -1,6 +1,8 @@
-<?php foreach ($barang as $b) {
+<?php 
+if (!empty($barang)) {    
+foreach ($barang as $b) {
                 ?>
-            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="col-md-6 col-lg-3">
                 <div class="product">
                     <a href="<?= base_url()?>index.php/shop/info/<?= $b->id_barang?>" class="img-prod"><img class="img-fluid" src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" alt="Colorlib Template">
                         <!-- <span class="status">30%</span> -->
@@ -44,4 +46,16 @@
                 </div>
             </div>
             <?php
-        } ?>
+        } 
+}else {
+    ?>
+        <div class="col-md-6 col-lg-3">
+            <div class="product">
+                Tidak tersedia
+            </div>
+        </div>
+    <?php
+
+}
+        
+?>

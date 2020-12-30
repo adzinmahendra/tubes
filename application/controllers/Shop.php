@@ -23,7 +23,7 @@ class Shop extends CI_Controller {
 		$barang = $this->M_All->search($keyword);
 		
 		// Kita load file view.php sambil mengirim data barang hasil query function search di M_All
-		$hasil = $this->load->view('shop/find', array('barang'=>$barang));
+		$hasil = $this->load->view('shop/find', array('barang'=>$barang), true);
 		
 		// Buat sebuah array
 		$callback = array(
