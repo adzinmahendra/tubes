@@ -57,7 +57,7 @@
 							Forgot
 						</span>
 
-						<a href="#" class="txt2">
+						<a href="<?= base_url('index.php/User/ForgotPassword');?>" class="txt2">
 							User name / password?
 						</a>
 					</div>
@@ -67,6 +67,7 @@
 							Sign Up
 						</a>
 					</div>
+					
 				</form>
 
 				<div class="login100-more" style="background-image: url('<?php echo base_url()?>assets/images/bg-01.jpg');"></div>

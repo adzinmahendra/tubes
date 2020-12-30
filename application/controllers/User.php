@@ -123,5 +123,69 @@ class User extends CI_Controller {
     function Logout(){
 		$this->session->sess_destroy();
 		redirect(base_url('index.php/welcome'));
-	}
+    }
+    
+    public function ForgotPassword()
+    {
+        $this->load->view('form/forgotpassword');
+
+    }
+
+    public function confirmForgetPassword($username)
+    {
+        if ($username != null) {
+            // echo $username;
+            $data = array(
+                'username' => $username
+            );
+            $this->load->view('form/newpassword', $data);
+        }else{
+            redirect(base_url('index.php/user/login'));
+        }
+    }
+
+    public function actionConfirmForgetPassword()
+    {
+        $password = $this->input->post('password');
+        $cpassword = $this->input->post('cpassword');
+        $username = $this->input->post('username');
+        if ($password == $cpassword) {
+            $data = array('password' => md5($password));
+            $where = array('username' => $username);
+            if ($this->M_All->update('users', $where, $data)) {
+                // redirect(base_url('index.php/user/login'));
+                echo "<script>
+                    alert('
+                    password telah diubah
+                    ');
+                    </script>";
+                $this->Login();
+            }
+        }else{
+            $this->confirmForgetPassword($username);
+            echo "<script>
+              alert('
+              password tidak sama
+              ');
+              </script>";
+            // redirect(base_url('index.php/user/ForgotPassword'));
+        }
+    }
+
+    public function actionForgetPassword()
+    {
+        $where = array(
+            'username' => $this->input->post('username'),
+        );
+		$cek = $this->M_User->cek_login("users",$where)->num_rows();
+        if ($cek > 0) {
+            $this->confirmForgetPassword($where['username']);
+        }else {
+            $this->ForgotPassword();
+            echo "<script>
+              alert('Anda Belum memiliki akun');
+              </script>";
+            // redirect(base_url('index.php/user/ForgotPassword'));
+        }
+    }
 }
