@@ -38,7 +38,7 @@
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
                               <td>
                                   <?php  ?>
-                                  <a href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $p->id_user ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                  <a href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                       <i class="fas fa-search fa-sm text-white-50"></i> Lihat Pesanan
                                   </a>
                               </td>

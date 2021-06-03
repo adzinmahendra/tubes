@@ -91,12 +91,22 @@
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Category">Category</a>
               </div>
             </li>
+
 	          <li class="nav-item"><a href="<?= base_url()?>index.php/Welcome/About" class="nav-link">About</a></li>
 	          <!-- <li class="nav-item"><a href="<?= base_url()?>index.php/blog" class="nav-link">Blog</a></li> -->
 	          <li class="nav-item"><a href="<?= base_url()?>index.php/Shop/Saran" class="nav-link">Contact/Advisory</a></li>
 	          <li class="nav-item cta cta-colored"><a href="<?= base_url()?>index.php/shop/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $this->M_All->count('cart')?>]</a></li>
               <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Login</a></li> -->
-	        </ul>
+              <?php
+                  if($this->session->userdata('status') == "login"){
+                      // redirect(base_url("login"));
+              ?>
+                  <li class="nav-item"><a href="<?= base_url()?>index.php/user/pesanan" class="nav-link">Pesanan</a></li>
+
+              <?php
+                  }
+              ?>
+            </ul>
 	      </div>
 	    </div>
 	  </nav>

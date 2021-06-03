@@ -56,7 +56,7 @@ class Konsumen extends CI_Controller {
 
     public function lihatPesanan($id)
     {
-        $where = array('db_cart.id_user' => $id, );
+        $where = array('pesanan.id_pesanan' => $id, );
         $data['cart'] = $this->M_All->join_cart_admin('db_cart', 'barang', 'users', 'pesanan', $where)->result();
         $this->load->view('admin/header');
         $this->load->view('konsumen/detail_pesanan', $data);

@@ -144,7 +144,7 @@ class Kelola extends CI_Controller {
 		$data = array(
 			'nama_sumber' => $nama_sumber,
 			'alamat_sumber' => $alamat_sumber,
-			'no_telepon' => $$no_telepon
+			'no_telepon' => $no_telepon
 		);
 
 		$this->M_All->insert('sumber', $data);
@@ -165,10 +165,13 @@ class Kelola extends CI_Controller {
 		$id_sumber = $this->input->post('id_sumber');
 		$nama_sumber = $this->input->post('nama_sumber');
 		$alamat_sumber = $this->input->post('alamat_sumber');
+		$no_telepon = $this->input->post('no_telepon');
 
 		$data = array(
 			'nama_sumber' => $nama_sumber,
-			'alamat_sumber' => $alamat_sumber
+			'alamat_sumber' => $alamat_sumber,
+			'no_telepon' => $no_telepon
+
 		);
 
 		$where = array('id_sumber' => $id_sumber);
@@ -211,14 +214,14 @@ class Kelola extends CI_Controller {
 			'kategori' => $this->input->post('nama_kategori'),
 		);
 		$this->M_All->insert('kategori', $data);
-		
+
 		redirect('kelola/kategori');
 
 	}
 
 	public function cekListKategori()
 	{
-		
+
 	}
 
 	public function hapusKategori($id)

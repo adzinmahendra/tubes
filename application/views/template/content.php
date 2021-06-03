@@ -372,7 +372,7 @@
     	</div>
     </section>
 
-		<section class="ftco-section img" style="background-image: url(<?php echo base_url()?>assets/images/bg_3.jpg);">
+		<!-- <section class="ftco-section img" style="background-image: url(<?php echo base_url()?>assets/images/bg_3.jpg);">
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -390,9 +390,9 @@
           </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
-    <section class="ftco-section testimony-section">
+    <!-- <section class="ftco-section testimony-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
@@ -478,7 +478,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <hr>
 

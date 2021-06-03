@@ -124,7 +124,7 @@ class User extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url('index.php/welcome'));
     }
-    
+
     public function ForgotPassword()
     {
         $this->load->view('form/forgotpassword');
@@ -187,5 +187,17 @@ class User extends CI_Controller {
               </script>";
             // redirect(base_url('index.php/user/ForgotPassword'));
         }
+    }
+
+    public function pesanan()
+    {
+        $where = [
+            'pesanan.id_user' => $this->session->userdata('id_user')
+        ];
+        $data['pesanan'] = $this->M_All->join_pesanan_where('pesanan', 'checkout', $where)->result();
+
+        $this->load->view('template/header');
+		$this->load->view('transaksi/pesanan', $data);
+		$this->load->view('template/footer');
     }
 }

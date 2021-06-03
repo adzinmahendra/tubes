@@ -20,15 +20,15 @@ class M_All extends CI_Model{
 	{
 		return $this->db->get_where($table,$where);
     }
-    
+
     public function search($keyword)
     {
         $this->db->like('nama_barang', $keyword);
         $this->db->or_like('keterangan_barang', $keyword);
         $this->db->or_like('jenis', $keyword);
-    
+
         $result = $this->db->get('barang')->result(); // Tampilkan data siswa berdasarkan keyword
-    
+
         return $result;
     }
 
@@ -94,6 +94,18 @@ class M_All extends CI_Model{
         $this->db->join($at, 'checkout.id_pesanan = pesanan.id_pesanan');
         $this->db->join('users', 'users.id = pesanan.id_user');
         $this->db->join('konsumen', 'konsumen.id_user = users.id');
+        return $this->db->get();
+    }
+
+    function join_pesanan_where($from, $at, $where)
+    {
+        $this->db->select('*');
+        $this->db->from($from);
+        $this->db->join($at, 'checkout.id_pesanan = pesanan.id_pesanan');
+        $this->db->join('users', 'users.id = pesanan.id_user');
+        $this->db->join('konsumen', 'konsumen.id_user = users.id');
+        $this->db->where($where);
+        
         return $this->db->get();
     }
 

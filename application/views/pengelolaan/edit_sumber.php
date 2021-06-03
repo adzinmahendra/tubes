@@ -25,6 +25,10 @@
                     <label for="exampleFormControlInput1">Alamat Sumber</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Alamat" value="<?php echo $s->alamat_sumber; ?>" name="alamat_sumber" aria-label="alamatSumber" aria-describedby="basic-addon2">
                 </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">No. Telepon</label>
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="No. Telepon" value="<?php echo $s->no_telepon; ?>" name="no_telepon" aria-label="noTelepon" aria-describedby="basic-addon2">
+                </div>
             <?php } ?>
           </div>
           <div class="card-footer d-flex justify-content-end">
