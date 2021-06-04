@@ -230,4 +230,13 @@ class Kelola extends CI_Controller {
 		$this->M_All->delete($where,'kategori');
 		redirect('kelola/kategori');
 	}
+
+	public function statistik()
+	{
+		$data['pesanan'] = $this->M_All->get('pesanan')->result();
+
+		$this->load->view('admin/header');
+		$this->load->view('admin/statistik', $data);
+		$this->load->view('admin/footer');
+	}
 }

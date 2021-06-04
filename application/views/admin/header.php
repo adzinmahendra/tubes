@@ -116,7 +116,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url()?>index.php/kelola/statistik ">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Statistik</span></a>
       </li>

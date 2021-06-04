@@ -18,35 +18,40 @@
                       <tr class="text-center">
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
-                        <th>Nama Produk</th>
-                        <th>Harga</th>
-                        <!-- <th>Banyak Barang</th> -->
-                        <!-- <th>Total</th> -->
+                        <th>Jumlah Barang</th>
+                        <th>Jumlah Harga</th>
+                        <!-- <th>Status</th> -->
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($wishlist as $w) {
+                        <?php foreach ($pesanan as $w) {
                             // code...
                         ?>
                       <tr class="text-center">
-                        <td class="product-remove"><a href="<?= base_url('index.php/shop/delWish/')?><?= $w->id_barang?>"><span class="ion-ios-close"></span></a></td>
-
-                        <td class="image-prod"><div class="img" style="background-image:url(<?= base_url('assets_admin/img/gambar_barang/')?><?= $w->gambar; ?>);"></div></td>
+                        <td class="product-remove"><a href="<?= base_url('index.php/shop/delWish/')?><?= $w->id_pesanan?>"><span class="ion-ios-close"></span></a></td>
 
                         <td class="product-name">
-                            <h3><?= $w->nama_barang?></h3>
-                            <p><?= $w->keterangan_barang?></p>
+                            <h3><?= $w->tanggal?></h3>
+                            <p><?= $w->nama_depan.' '.$w->nama_belakang?></p>
                         </td>
 
-                        <td class="price"><?= $w->harga_barang?></td>
+                        <td class="product-name">
+                            <h3><?= $w->jumlah_barang?></h3>
+                        </td>
+
+                        <td class="price"><?= $w->jumlah_harga?></td>
 
                         <!-- <td class="quantity">
                             <div class="input-group mb-3">
                             <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $w->jumlah?>" min="1" max="100">
                         </div> -->
-                      </td>
-
-                        <!-- <td class="total"><?php echo $w->harga_barang; ?></td> -->
+                        <!-- <td class="product-name">
+                            ha
+                        </td> -->
+                        <td class="product-name">
+                            <button>cek</button>
+                        </td>
                       </tr><!-- END TR-->
                   <?php } ?>
                     </tbody>
