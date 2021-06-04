@@ -216,10 +216,9 @@ class Kelola extends CI_Controller {
 		$this->M_All->insert('kategori', $data);
 
 		redirect('kelola/kategori');
-
 	}
 
-	public function cekListKategori()
+	public function cekListKategori($id)
 	{
 
 	}

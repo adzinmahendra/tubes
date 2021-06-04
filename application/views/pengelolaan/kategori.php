@@ -21,7 +21,7 @@
                     <label for="exampleFormControlInput1">Nama Kategori</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Kategori" name="nama_kategori" aria-label="namaKategori" aria-describedby="basic-addon2">
                 </div>
-                
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
@@ -41,21 +41,46 @@
             <h6 class="m-0 font-weight-bold text-primary"><?= $k->kategori?></h6>
         </a>
         <!-- Card Content - Collapse -->
-        <div class="collapse" id="collapseCardExample<?= $k->id_kategori?>" style="">
+        <div class="collapse" id="collapseCardExample<?= $k->id_kategori?>" style="" width="100%">
             <div class="card-body">
-                <?php
-                // print_r($barang);
-                    foreach ($barang as $b) {
-                        if ($b->id_kategori == $k->id_kategori) {
-                            echo $b->nama_barang;
-                        }
-                    }
-
-                ?>
+                <table class="table table-bordered" id="dataTablejkjh" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Gambar</th>
+                      </tr>
+                    </thead>
+                    <!-- <tfoot>
+                      <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                      </tr>
+                    </tfoot> -->
+                    <tbody>
+                      <?php
+                          $no = 1;
+                          foreach($barang as $b){
+                              if ($b->id_kategori == $k->id_kategori) {
+                      ?>
+                        <tr>
+                            <td><?= $no;?></td>
+                            <td><?= $b->nama_barang; ?></td>
+                            <td>Rp. <?= $b->harga_barang; ?></td>
+                            <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" height="100"></td>
+                        </tr>
+                        <?php $no++; }} ?>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="card-footer d-flex justify-content-end">
-            <a href="<?= base_url()?>index.php/Kelola/cekListKategori/<?= $k->id_kategori?>" class="btn btn-primary position-bottom">Cek</a>
+            <!-- <a href="<?= base_url()?>index.php/Kelola/cekListKategori/<?= $k->id_kategori?>" class="btn btn-primary position-bottom">Cek</a> -->
             <a href="<?= base_url()?>index.php/Kelola/hapusKategori/<?= $k->id_kategori?>" class="btn btn-danger position-bottom">Hapus</a>
         </div>
     </div>
