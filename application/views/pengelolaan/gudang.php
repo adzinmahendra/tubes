@@ -106,7 +106,7 @@
                           <th>Kategori</th>
                           <th>Tanggal</th>
                           <th>Sumber</th>
-                          <th>Gudang</th>
+                          <!-- <th>Gudang</th> -->
                           <th>Keterangan</th>
                           <th>Action</th>
                         </tr>
@@ -134,7 +134,7 @@
                               <td><?= $b->id_kategori; ?></td>
                               <td><?= $b->tanggal; ?></td>
                               <td><?= $b->id_sumber; ?>. <?=$b->nama_sumber?> - <?= $b->alamat_sumber?></td>
-                              <td><?= $b->id_gudang; ?></td>
+                              <!-- <td><?= $b->id_gudang; ?></td> -->
                               <td><?= $b->keterangan_barang; ?></td>
                               <td>
                                   <a href="<?= base_url() ?>index.php/kelola/editbarang/<?= $b->id_barang ?>" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
