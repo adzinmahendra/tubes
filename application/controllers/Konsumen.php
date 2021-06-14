@@ -12,7 +12,7 @@ class Konsumen extends CI_Controller {
 		}
 	}
 
-    public function kotakSaran()
+    public function pesan()
     {
         $data['saran'] = $this->M_All->get('saran')->result();
         $this->load->view('admin/header');
@@ -57,10 +57,11 @@ class Konsumen extends CI_Controller {
     public function lihatPesanan($id)
     {
         $where = array('pesanan.id_pesanan' => $id, );
-        $data['cart'] = $this->M_All->join_cart_admin('db_cart', 'barang', 'users', 'pesanan', $where)->result();
-        $this->load->view('admin/header');
-        $this->load->view('konsumen/detail_pesanan', $data);
-        $this->load->view('admin/footer');
+        $data['cart'] = $this->M_All->join_cart_admin('db_cart', $where)->result();
+        print_r($data);
+        // $this->load->view('admin/header');
+        // $this->load->view('konsumen/detail_pesanan', $data);
+        // $this->load->view('admin/footer');
     }
 
     public function prosesPesanan($id)

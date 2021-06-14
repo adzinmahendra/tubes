@@ -94,7 +94,7 @@
 
 	          <li class="nav-item"><a href="<?= base_url()?>index.php/Welcome/About" class="nav-link">About</a></li>
 	          <!-- <li class="nav-item"><a href="<?= base_url()?>index.php/blog" class="nav-link">Blog</a></li> -->
-	          <li class="nav-item"><a href="<?= base_url()?>index.php/Shop/Saran" class="nav-link">Contact/Advisory</a></li>
+	          <li class="nav-item"><a href="<?= base_url()?>index.php/Shop/Saran" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta cta-colored"><a href="<?= base_url()?>index.php/shop/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $this->M_All->count('cart')?>]</a></li>
               <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Login</a></li> -->
               <?php

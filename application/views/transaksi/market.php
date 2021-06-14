@@ -42,6 +42,14 @@
                     <label for="exampleFormControlInput1">Keterangan Market</label>
                     <input type="text" required class="form-control bg-light border-1 small" placeholder="Keterangan" name="keterangan_market" aria-label="keteranganPasar" aria-describedby="basic-addon2">
                 </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Penanggung Jawab</label>
+                    <input type="text" required class="form-control bg-light border-1 small" placeholder="Nama Penanggung Jawab" name="nama_penanggung_jawab" aria-label="namaPenanggungJawab" aria-describedby="basic-addon2">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">No. Telepon</label>
+                    <input type="text" required class="form-control bg-light border-1 small" placeholder="Nomor_telepon" name="no_telepon" aria-label="nomorTelepon" aria-describedby="basic-addon2">
+                </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -65,6 +73,8 @@
                           <th>Nama Pasar</th>
                           <th>Alamat</th>
                           <th>Keterangan</th>
+                          <th>Penanggung Jawab</th>
+                          <th>No. Telepon</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -88,6 +98,8 @@
                               <td><?= $m->nama_market; ?></td>
                               <td><?= $m->alamat_market; ?></td>
                               <td><?= $m->keterangan_market; ?></td>
+                              <td><?= $m->nama_penanggung_jawab; ?></td>
+                              <td><?= $m->no_telepon; ?></td>
                               <td>
                                   <a class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" href="<?= base_url() ?>index.php/transaksi/editMarket/<?= $m->id_market ?>" data-toggle="modal" data-target="#editModal<?= $m->id_market ?>">
                                     <i class="fas fa-pen fa-sm text-white-50"></i> Edit
@@ -122,6 +134,14 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Keterangan Market</label>
                                             <input name="keterangan_market" type="text" class="form-control" placeholder="" value="<?= $m->keterangan_market; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Penanggung Jawab</label>
+                                            <input type="text" required class="form-control bg-light border-1 small" placeholder="Nama Penanggung Jawab" name="nama_penanggung_jawab" aria-label="namaPenanggungJawab" aria-describedby="basic-addon2">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">No. Telepon</label>
+                                            <input type="text" required class="form-control bg-light border-1 small" placeholder="Nomor_telepon" name="no_telepon" aria-label="nomorTelepon" aria-describedby="basic-addon2">
                                         </div>
                                     </form>
                                 </div>

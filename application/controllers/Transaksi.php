@@ -40,11 +40,15 @@ class Transaksi extends CI_Controller {
 		$nama_market = $this->input->post('nama_market');
 		$alamat_market = $this->input->post('alamat_market');
 		$keterangan_market = $this->input->post('keterangan_market');
+		$nama_penanggung_jawab = $this->input->post('nama_penanggung_jawab');
+		$no_telepon = $this->input->post('no_telepon');
 
 		$data = array(
 			'nama_market' => $nama_market,
 			'alamat_market' => $alamat_market,
-			'keterangan_market' => $keterangan_market
+			'keterangan_market' => $keterangan_market,
+			'nama_penanggung_jawab' => $nama_penanggung_jawab,
+			'no_telepon' => $no_telepon,
 		);
 
 		$this->M_All->insert('market', $data);
@@ -58,6 +62,8 @@ class Transaksi extends CI_Controller {
 			'nama_market' => $this->input->post('nama_market'),
 			'alamat_market' => $this->input->post('alamat_market'),
 			'keterangan_market' => $this->input->post('keterangan_market'),
+			'nama_penanggung_jawab' => $this->input->post('nama_penanggung_jawab'),
+			'no_telepon' => $this->input->post('no_telepon'),
 		);
 		$this->M_All->update('market', $where, $data);
 		redirect('transaksi/market');
@@ -99,6 +105,8 @@ class Transaksi extends CI_Controller {
 	{
 		$where = array('id_barang' => $id);
 		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
+		$data['jenis'] = $this->M_All->get('kategori')->result();
+		$data['sumber'] = $this->M_All->get('sumber')->result();
 		$this->load->view('admin/header');
 		$this->load->view('transaksi/kuantitas', $data);
 		$this->load->view('admin/footer');

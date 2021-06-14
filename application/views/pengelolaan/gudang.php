@@ -102,7 +102,7 @@
                           <th>No.</th>
                           <th>Nama</th>
                           <th>Harga</th>
-                          <th>Gambar</th>
+                          <!-- <th>Gambar</th> -->
                           <th>Kategori</th>
                           <th>Tanggal</th>
                           <th>Sumber</th>
@@ -130,10 +130,10 @@
                               <td><?= $no;?></td>
                               <td><?= $b->nama_barang; ?></td>
                               <td><?= $b->harga_barang; ?></td>
-                              <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" height="100"></td>
+                              <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" height="100"></td> -->
                               <td><?= $b->id_kategori; ?></td>
                               <td><?= $b->tanggal; ?></td>
-                              <td><?= $b->id_sumber; ?></td>
+                              <td><?= $b->id_sumber; ?>. <?=$b->nama_sumber?> - <?= $b->alamat_sumber?></td>
                               <td><?= $b->id_gudang; ?></td>
                               <td><?= $b->keterangan_barang; ?></td>
                               <td>

@@ -20,7 +20,7 @@
                             <td>Nama Barang</td>
                             <td>Harga Barang</td>
                             <td>Jumlah</td>
-                            <td>Jenis</td>
+                            <td>Satuan</td>
                             <td>Keterangan Barang</td>
                             <td>Action</td>
                         </tr>
@@ -33,9 +33,9 @@
                           <tr>
                               <td><?= $no;?></td>
                               <td><?= $b->nama_barang; ?></td>
-                              <td><?= $b->harga_barang; ?></td>
+                              <td>Rp. <?= $b->harga_barang; ?></td>
                               <td><?= $b->jumlah; ?></td>
-                              <td><?= $b->jenis; ?></td>
+                              <td><?= $b->satuan; ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
                               <td><?= $b->keterangan_barang; ?></td>
                               <td>

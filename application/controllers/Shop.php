@@ -21,10 +21,10 @@ class Shop extends CI_Controller {
 		// Ambil data namaBarang yang dikirim via ajax post
 		$keyword = $this->input->post('keyword');
 		$barang = $this->M_All->search($keyword);
-		
+
 		// Kita load file view.php sambil mengirim data barang hasil query function search di M_All
 		$hasil = $this->load->view('shop/find', array('barang'=>$barang), true);
-		
+
 		// Buat sebuah array
 		$callback = array(
 		  'hasil' => $hasil, // Set array hasil dengan isi dari find.php yang diload tadi
@@ -190,6 +190,7 @@ class Shop extends CI_Controller {
 			'id_user' => $this->session->userdata('id_user'),
 			'jumlah_bayar' => $jumlah_bayar,
 			'jumlah_barang' => $jumlah_barang,
+			'tgl_pesan' => date('Y-m-d'),
 		);
 
 

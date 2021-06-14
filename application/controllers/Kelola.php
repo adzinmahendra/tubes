@@ -15,7 +15,8 @@ class Kelola extends CI_Controller {
 	public function Gudang()
 	{
 		$this->load->view('admin/header');
-		$data['barang'] = $this->M_All->get('barang')->result();
+		// $data['barang'] = $this->M_All->get('barang')->result();
+		$data['barang'] = $this->M_All->join_gudang()->result();
 		$data['sumber'] = $this->M_All->get('sumber')->result();
 		$data['gudang'] = $this->M_All->get('gudang')->result();
 		$this->load->view('pengelolaan/gudang', $data);

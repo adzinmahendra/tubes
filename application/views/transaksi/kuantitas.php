@@ -36,8 +36,31 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Jenis</label>
-                            <input type="text" required class="form-control bg-light border-1 small" placeholder="Satuan" value="<?php echo $b->jenis; ?>" name="jenis" aria-label="Jenis" aria-describedby="basic-addon2">
+                            <?php if ($b->id_kategori == 0): ?>
+                                <select name="jenis" class="form-control bg-light border-1 small">
+                                    <option value="">-Pilih Kategori-</option>
+                                    <?php foreach ($jenis as $k): ?>
+                                        <option value="<?= $k->id_kategori?>"><?= $k->kategori?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php else: ?>
+                                <input type="text" disabled required class="form-control bg-light border-1 small" placeholder="Jenis" value="<?php echo $b->jenis; ?>" name="jenis" aria-label="Jenis" aria-describedby="basic-addon2">
+                            <?php endif; ?>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Satuan</label>
+                            <input type="text" required class="form-control bg-light border-1 small" placeholder="Satuan" value="<?php echo $b->satuan; ?>" name="satuan" aria-label="Satuan" aria-describedby="basic-addon2">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="exampleFormControlInput1">Sumber</label>
+                            <select name="sumber" class="form-control bg-light border-1 small">
+                                <option value="">-Pilih Sumber-</option>
+                                <?php foreach ($sumber as $s): ?>
+                                    <option value="<?= $s->id_sumber?>"><?= $s->nama_sumber?> - <?= $s->alamat_sumber?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="text" disabled required class="form-control bg-light border-1 small" placeholder="Satuan" value="<?php echo $b->id_sumber; ?>" name="id_sumber" aria-label="Sumber" aria-describedby="basic-addon2">
+                        </div> -->
                         <button type="submit" class="btn btn-success position-bottom">Update</button>
                     </form>
                 </div>
