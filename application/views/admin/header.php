@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>D-Farm</title>
+  <title> Admin D-Farm</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url()?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

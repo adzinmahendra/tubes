@@ -31,11 +31,11 @@
 								<div class="form-group d-flex">
 		              <div class="select-wrap">
 	                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                  <select name="size" id="" class="form-control">
-	                  	<option value="">Small</option>
-	                    <option value="">Medium</option>
-	                    <option value="">Large</option>
-	                    <option value="">Extra Large</option>
+	                  <select name="sumber" id="" class="form-control">
+	                  	<option value="">-Pilih Sumber-</option>
+                        <?php foreach ($sumber as $s): ?>
+                            <option value="<?= $s->id_sumber?>"><?= $s->nama_sumber?> - <?= $s->alamat_sumber?></option>
+                        <?php endforeach; ?>
 	                  </select>
 	                </div>
 		            </div>
@@ -56,7 +56,7 @@
 	          	</div>
 	          	<div class="w-100"></div>
 	          	<div class="col-md-12">
-	          		<p style="color: #000;"><?= $b->jumlah;?> <?= $b->satuan;?> available</p>
+	          		<p style="color: #000;">Tersedia <?= $b->jumlah;?> <?= $b->satuan;?></p>
 	          	</div>
           	</div>
           	<p>

@@ -36,6 +36,7 @@ class Shop extends CI_Controller {
 	{
 		$where = array('id_barang' => $id_barang);
 		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
+		$data['sumber'] = $this->M_All->get('sumber')->result();
 		$this->load->view('template/header');
 		$this->load->view('shop/info', $data);
 		$this->load->view('template/footer');

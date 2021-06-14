@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
       <div class="col-md-9 ftco-animate text-center">
-        <p class="breadcrumbs"><span class="mr-2"><a href="<?= base_url()?>index.php/Shop">Home</a></span> <span>Daftar Keinginan</span></p>
-        <h1 class="mb-0 bread">Daftar Keinginan</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="<?= base_url()?>index.php/Shop">Home</a></span> <span>Daftar Pesanan</span></p>
+        <h1 class="mb-0 bread">Daftar Pesanan</h1>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
                         </td>
 
                         <td class="product-name">
-                            <h3><?= $w->jumlah_barang?></h3>
+                            <h3><?= $w->jumlah_barang?> Kg</h3>
                         </td>
 
                         <td class="price"><?= $w->jumlah_harga?></td>
