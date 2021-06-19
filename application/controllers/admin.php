@@ -33,4 +33,23 @@ class Admin extends CI_Controller {
 	{
 		// code...
 	}
+
+	public function profile()
+	{
+		$id_user = $this->session->userdata('id_user');
+		$where = [
+			'id' => $id_user,
+		];
+		$data['profile'] = $this->M_All->view_where('users', $where)->row();
+		$data['admin'] = $this->M_All->view_where('users', $where)->row();
+		// print_r($data);
+		$this->load->view('admin/header');
+		$this->load->view('admin/profile', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function updateProfile($id)
+	{
+
+	}
 }
