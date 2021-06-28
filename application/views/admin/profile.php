@@ -33,10 +33,10 @@
             <div class="row">
                 <div class="col-4">
                     <div class="card">
-                        <form class="" action="index.html" method="post">
-                            <img src="https://source.unsplash.com/QAB-WJcbgJk/60x60" class="card-img-top" alt="...">
+                        <form class="" action="<?= base_url()?>index.php/admin/update_profile" method="post" enctype="multipart/form-data">
+                            <img src="<?= $admin->gambar ?? "https://source.unsplash.com/QAB-WJcbgJk/60x60"?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <input type="file" id="formFile" class="form-control md-3">
+                                <input type="file" id="formFile" name="gambar" class="form-control md-3">
                                 <p class="card-text">Biarkan foto kosong jika tidak ingin menggantinya.</p>
                             </div>
                         </div>
@@ -47,18 +47,18 @@
                                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
                                 <input type="text" name="email" value="<?= $profile->email ?>" class="form-control mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Username</label>
-                                <input type="text" name="" value="<?= $profile->username ?>" class="form-control mb-3">
+                                <input type="text" name="username" value="<?= $profile->username ?>" class="form-control mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Full Name</label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" name="" value="" class="form-control mb-3" placeholder="Nama Depan">
+                                        <input type="text" name="nama_depan" value="" class="form-control mb-3" placeholder="Nama Depan">
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" name="" value="" class="form-control mb-3" placeholder="Nama Belakang">
+                                        <input type="text" name="nama_belakang" value="" class="form-control mb-3" placeholder="Nama Belakang">
                                     </div>
                                 </div>
                                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                <input type="password" name="" value="<?= $profile->password ?>" class="form-control mb-3">
+                                <input type="password" name="password" value="<?= $profile->password ?>" class="form-control mb-3">
                                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 <input type="submit" name="" value="Simpan" class="btn btn-success">
                             </form>
@@ -67,15 +67,9 @@
                 </div>
             </div>
         </div>
-      </div>
+        </div>
     </div>
-  <!-- Content Row -->
-  <div class="row">
-    <div class="col-lg-6 mb-4">
-
-    </div>
-  </div>
-
+    <!-- Content Row -->
 </div>
 <!-- /.container-fluid -->
 

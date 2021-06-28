@@ -16,8 +16,13 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Stok Gudang</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="window.print()"><i class="fas fa-download fa-sm text-white-50"></i> Cetak</a>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah</a>
+    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah</a> -->
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah</button>
+        <!-- <a href="#" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i> Cetak</a> -->
+        <a href="#" class="btn btn-primary" onclick="window.print()"><i class="fas fa-download fa-sm text-white-50"></i> Cetak</a>
+        <a href="<?= base_url()?>index.php/Kelola/excel" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i> Export</a>
+    </div>
   </div>
   <!-- Content Row -->
   <div class="modal fade" tabindex="-1" role="dialog" id="myModal">

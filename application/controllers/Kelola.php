@@ -1,5 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+use PhpSpreadsheet/Spreadsheet;
+// defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kelola extends CI_Controller {
 
@@ -27,7 +28,7 @@ class Kelola extends CI_Controller {
 	{
 		$config['upload_path']          = './assets_admin/img/gambar_barang/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['overwrite']        = true;
+		$config['overwrite']        	= true;
 		$config['max_size']             = 1024;
 		// $config['max_width']            = 1024;
 		// $config['max_height']           = 768;
@@ -236,7 +237,56 @@ class Kelola extends CI_Controller {
 		$data['pesanan'] = $this->M_All->get('pesanan')->result();
 		$this->load->view('admin/header');
 		$this->load->view('admin/statistik', $data);
-		
+
 		$this->load->view('admin/footer');
+	}
+
+	public function excel()
+	{
+		$data['barang'] = $this->M_All->join_gudang()->result();
+
+		// require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+		// require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+		$object = new Spreadsheet();
+
+		$object->getProperties()->setCreator("Dfarm");
+		$object->getProperties()->setLastModifiedBy("Dfarm");
+		$object->getProperties()->setTittle("Laporan Barang");
+
+		$object->setActiveSheetActive(0);
+
+		$object->setActiveSheet()->setCellValue('A1', 'NO');
+		$object->setActiveSheet()->setCellValue('B1', 'NAMA BARANG');
+		$object->setActiveSheet()->setCellValue('C1', 'HARGA');
+		$object->setActiveSheet()->setCellValue('D1', 'KATEGORI');
+		$object->setActiveSheet()->setCellValue('E1', 'TANGGAL');
+		$object->setActiveSheet()->setCellValue('F1', 'SUMBER');
+		$object->setActiveSheet()->setCellValue('G1', 'KETERANGAN');
+
+		$baris = 2;
+		$no = 1;
+
+		foreach ($data['barang'] as $brg) {
+			$object->setActiveSheet()->setCellValue('A'.$baris, $no++);
+			$object->setActiveSheet()->setCellValue('B'.$baris, $brg->nama_barang);
+			$object->setActiveSheet()->setCellValue('C'.$baris, $brg->harga_barang);
+			$object->setActiveSheet()->setCellValue('D'.$baris, $brg->id_kategori);
+			$object->setActiveSheet()->setCellValue('E'.$baris, $brg->tanggal);
+			$object->setActiveSheet()->setCellValue('F'.$baris, $brg->nama_sumber);
+			$object->setActiveSheet()->setCellValue('G'.$baris, $brg->keterangan_barang);
+			$baris++;
+		}
+
+		$filename = "Data_Barang".'.xlsx';
+
+		$object->getActiveSheet()->setTittle("Data Barang");
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="'.$filename.'"');
+		header('Cache-Control: max-age=0');
+
+		$writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+		$writer->save('php://output');
+		exit;
 	}
 }
