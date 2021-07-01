@@ -1,6 +1,8 @@
 <?php
-use PhpSpreadsheet/Spreadsheet;
+// use PhpSpreadsheet/Spreadsheet;
+// require "./phpoffice/phpexcel/Classes/PHPExcel.php";
 // defined('BASEPATH') OR exit('No direct script access allowed');
+require_once('PHPExcel.php');
 
 class Kelola extends CI_Controller {
 
@@ -245,10 +247,11 @@ class Kelola extends CI_Controller {
 	{
 		$data['barang'] = $this->M_All->join_gudang()->result();
 
-		// require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+		// require(APPPATH. 'vendor/phpoffice/phpexcel/Classes/PHPExcel.php');
+		require(APPPATH. 'phpoffice\phpexcel\Classes\PHPExcel.php');
 		// require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
 
-		$object = new Spreadsheet();
+		$object = new PHPExcel();
 
 		$object->getProperties()->setCreator("Dfarm");
 		$object->getProperties()->setLastModifiedBy("Dfarm");

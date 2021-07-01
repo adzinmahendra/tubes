@@ -81,7 +81,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pengelolaan Transaksi:</h6>
             <a class="collapse-item" href="<?= base_url('index.php/Transaksi/penjualan');?>">Penjualan Barang</a>
-            <a class="collapse-item" href="<?= base_url('index.php/Transaksi/market');?>">Market Place</a>
+            <!-- <a class="collapse-item" href="<?= base_url('index.php/Transaksi/market');?>">Market Place</a> -->
             <a class="collapse-item" href="<?= base_url('index.php/Transaksi/pengadaan');?>">Pengadaan Barang</a>
             <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
           </div>
@@ -89,7 +89,7 @@
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collapseUtilities">
               <i class="fas fa-fw fa-envelope"></i>
               <span>Market Place</span>
@@ -98,10 +98,10 @@
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Pasar:</h6>
                   <a class="collapse-item" href="<?= base_url('index.php/Transaksi/market');?>">Daftar Pasar</a>
-                  <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                  <a class="collapse-item" href="utilities-other.html">Other</a>
               </div>
           </div>
-      </li>
+      </li> -->
 
 
       <!-- Nav Item - Pages Collapse Menu -->
