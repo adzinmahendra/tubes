@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 04:22 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Jul 02, 2021 at 01:03 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `dfarm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `nama_depan` varchar(255) NOT NULL,
+  `nama_belakang` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -48,7 +62,7 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `keterangan_barang`, `harga_barang`, `tanggal`, `jumlah`, `jenis`, `satuan`, `gambar`, `id_sumber`, `id_gudang`, `id_kategori`) VALUES
 (5, 'Stroberi', 'Stroberi Lembang', '34000', '2020-02-04', 10, 'Buah', 'Kg', 'product-2.jpg', 3, 1, 2),
-(6, 'Kol Ungu', 'Kol Ungu Lembang', '20900', '2020-02-11', 5, 'Kg', '', 'product-4.jpg', 1, 1, 0),
+(6, 'Kol Ungu', 'Kol Ungu Lembang', '20900', '2020-02-11', 5, 'Sayur', '', 'product-4.jpg', 3, 1, 1),
 (7, 'Brokoli', 'Brokoli Banjaran', '34000', '2020-02-10', 0, '', '', 'product-6.jpg', 1, 1, 0),
 (8, 'Wortel', 'Wortel Majalaya', '20900', '2020-02-10', 0, '', '', 'product-7.jpg', 1, 1, 0),
 (11, 'Tomat', 'Tomat Merah', '20900', '2020-02-11', 0, '', '', 'product-5.jpg', 1, 1, 0),
@@ -97,7 +111,9 @@ CREATE TABLE `checkout` (
 
 INSERT INTO `checkout` (`id_checkout`, `keterangan_checkout`, `email`, `tanggal`, `id_pesanan`, `jumlah_harga`, `id_pembayaran`, `id_user`) VALUES
 (1, '', 'qwe@gmail.com', '0000-00-00', 1, 170000, 0, 2),
-(4, '', 'qwe@gmail.com', '2020-12-27', 4, 68000, 0, 2);
+(4, '', 'qwe@gmail.com', '2020-12-27', 4, 68000, 0, 2),
+(5, '', 'qwe@gmail.com', '2021-06-02', 5, 102000, 0, 2),
+(6, '', 'qwe@gmail.com', '2021-06-14', 6, 34000, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +140,9 @@ CREATE TABLE `db_cart` (
 
 INSERT INTO `db_cart` (`id_db_cart`, `id_cart`, `keterangan_cart`, `jumlah_bayar`, `jumlah_barang`, `size`, `id_transaksi`, `id_barang`, `id_user`, `email`) VALUES
 (1, 6, 'beli', 1, 5, '', 1, 5, 2, 'guest'),
-(4, 9, 'beli', 1, 2, '', 1, 5, 2, '');
+(4, 9, 'beli', 1, 2, '', 1, 5, 2, ''),
+(5, 10, 'beli', 1, 3, '', 1, 5, 2, ''),
+(6, 11, 'beli', 1, 1, '', 1, 5, 2, '');
 
 -- --------------------------------------------------------
 
@@ -199,7 +217,7 @@ CREATE TABLE `konsumen` (
 --
 
 INSERT INTO `konsumen` (`id_konsumen`, `nama_depan`, `nama_belakang`, `keterangan_konsumen`, `alamat_konsumen`, `kota`, `no_telepon_konsumen`, `kode_pos`, `email`, `id_user`) VALUES
-(3, 'Annissa', 'Angela', '', '', 'qwe', '082282710200', '123321', 'qwe@gmail.com', 2);
+(3, 'Annissa', 'Angela', '', '', 'qwe', '082282710200', '', 'qwe@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -224,16 +242,18 @@ CREATE TABLE `market` (
   `id_market` int(11) NOT NULL,
   `nama_market` varchar(255) NOT NULL,
   `alamat_market` varchar(255) NOT NULL,
-  `keterangan_market` varchar(255) NOT NULL
+  `keterangan_market` varchar(255) NOT NULL,
+  `nama_penanggung_jawab` varchar(255) NOT NULL,
+  `no_telepon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `market`
 --
 
-INSERT INTO `market` (`id_market`, `nama_market`, `alamat_market`, `keterangan_market`) VALUES
-(1, 'Pasar Andir', 'Jalan Andir', 'Pasar pagi'),
-(2, 'Pasar Kordon', 'Jalan ciwastra', 'Pasar Harian');
+INSERT INTO `market` (`id_market`, `nama_market`, `alamat_market`, `keterangan_market`, `nama_penanggung_jawab`, `no_telepon`) VALUES
+(1, 'Pasar Andir', 'Jalan Andir', 'Pasar pagi', '', ''),
+(2, 'Pasar Kordon', 'Jalan ciwastra', 'Pasar Harian', '', '');
 
 -- --------------------------------------------------------
 
@@ -298,6 +318,19 @@ CREATE TABLE `penjualan` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pesan`
+--
+
+CREATE TABLE `pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `isi` text NOT NULL,
+  `tangal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pesanan`
 --
 
@@ -319,7 +352,9 @@ CREATE TABLE `pesanan` (
 INSERT INTO `pesanan` (`id_pesanan`, `grup_pesanan`, `jumlah_bayar`, `jumlah_barang`, `id_transaksi`, `id_user`, `email`, `tgl_pesan`) VALUES
 (1, 1, 170000, 1, 0, 2, 'qwe@gmail.com', '0000-00-00'),
 (2, 0, 34000, 1, 0, 2, 'qwe@gmail.com', '0000-00-00'),
-(4, 0, 68000, 1, 0, 2, 'qwe@gmail.com', '0000-00-00');
+(4, 0, 68000, 1, 0, 2, 'qwe@gmail.com', '0000-00-00'),
+(5, 0, 102000, 1, 0, 2, 'qwe@gmail.com', '0000-00-00'),
+(6, 0, 34000, 1, 0, 2, 'qwe@gmail.com', '2021-06-14');
 
 -- --------------------------------------------------------
 
@@ -344,16 +379,17 @@ CREATE TABLE `saran` (
 CREATE TABLE `sumber` (
   `id_sumber` int(11) NOT NULL,
   `nama_sumber` varchar(255) NOT NULL,
-  `alamat_sumber` varchar(255) NOT NULL
+  `alamat_sumber` varchar(255) NOT NULL,
+  `no_telepon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sumber`
 --
 
-INSERT INTO `sumber` (`id_sumber`, `nama_sumber`, `alamat_sumber`) VALUES
-(1, 'Albert Cobain', 'New Holland'),
-(3, 'Callumn Britte', 'Holland');
+INSERT INTO `sumber` (`id_sumber`, `nama_sumber`, `alamat_sumber`, `no_telepon`) VALUES
+(1, 'Albert Cobain', 'New Holland', '+1235786445'),
+(3, 'Callumn Britte', 'Holland', '');
 
 -- --------------------------------------------------------
 
@@ -422,6 +458,12 @@ INSERT INTO `wishlist` (`id_wishlist`, `keterangan_wishlist`, `total`, `id_baran
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `barang`
@@ -518,6 +560,12 @@ ALTER TABLE `penjualan`
   ADD PRIMARY KEY (`id_penjualan`);
 
 --
+-- Indexes for table `pesan`
+--
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
 -- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
@@ -563,6 +611,12 @@ ALTER TABLE `wishlist`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
@@ -572,19 +626,19 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `db_cart`
 --
 ALTER TABLE `db_cart`
-  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `distribusi`
@@ -647,10 +701,16 @@ ALTER TABLE `penjualan`
   MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sumber`
