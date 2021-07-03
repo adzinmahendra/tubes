@@ -260,25 +260,25 @@ class Kelola extends CI_Controller {
 
 		$object->setActiveSheetIndex(0);
 
-		$object->setActiveSheet()->setCellValue('A1', 'NO');
-		$object->setActiveSheet()->setCellValue('B1', 'NAMA BARANG');
-		$object->setActiveSheet()->setCellValue('C1', 'HARGA');
-		$object->setActiveSheet()->setCellValue('D1', 'KATEGORI');
-		$object->setActiveSheet()->setCellValue('E1', 'TANGGAL');
-		$object->setActiveSheet()->setCellValue('F1', 'SUMBER');
-		$object->setActiveSheet()->setCellValue('G1', 'KETERANGAN');
+		$object->getActiveSheet()->setCellValue('A1', 'NO');
+		$object->getActiveSheet()->setCellValue('B1', 'NAMA BARANG');
+		$object->getActiveSheet()->setCellValue('C1', 'HARGA');
+		$object->getActiveSheet()->setCellValue('D1', 'KATEGORI');
+		$object->getActiveSheet()->setCellValue('E1', 'TANGGAL');
+		$object->getActiveSheet()->setCellValue('F1', 'SUMBER');
+		$object->getActiveSheet()->setCellValue('G1', 'KETERANGAN');
 
 		$baris = 2;
 		$no = 1;
 
 		foreach ($data['barang'] as $brg) {
-			$object->setActiveSheet()->setCellValue('A'.$baris, $no++);
-			$object->setActiveSheet()->setCellValue('B'.$baris, $brg->nama_barang);
-			$object->setActiveSheet()->setCellValue('C'.$baris, $brg->harga_barang);
-			$object->setActiveSheet()->setCellValue('D'.$baris, $brg->id_kategori);
-			$object->setActiveSheet()->setCellValue('E'.$baris, $brg->tanggal);
-			$object->setActiveSheet()->setCellValue('F'.$baris, $brg->nama_sumber);
-			$object->setActiveSheet()->setCellValue('G'.$baris, $brg->keterangan_barang);
+			$object->getActiveSheet()->setCellValue('A'.$baris, $no++);
+			$object->getActiveSheet()->setCellValue('B'.$baris, $brg->nama_barang);
+			$object->getActiveSheet()->setCellValue('C'.$baris, $brg->harga_barang);
+			$object->getActiveSheet()->setCellValue('D'.$baris, $brg->id_kategori);
+			$object->getActiveSheet()->setCellValue('E'.$baris, $brg->tanggal);
+			$object->getActiveSheet()->setCellValue('F'.$baris, $brg->nama_sumber);
+			$object->getActiveSheet()->setCellValue('G'.$baris, $brg->keterangan_barang);
 			$baris++;
 		}
 
