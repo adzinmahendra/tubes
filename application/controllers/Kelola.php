@@ -256,7 +256,7 @@ class Kelola extends CI_Controller {
 
 		$object->getProperties()->setCreator("Dfarm");
 		$object->getProperties()->setLastModifiedBy("Dfarm");
-		$object->getProperties()->setTittle("Laporan Barang");
+		$object->getProperties()->setTitle("Daftar Barang");
 
 		$object->setActiveSheetActive(0);
 
