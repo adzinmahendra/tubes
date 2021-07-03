@@ -284,7 +284,7 @@ class Kelola extends CI_Controller {
 
 		$filename = "Data_Barang".'.xlsx';
 
-		$object->getActiveSheet()->setTittle("Data Barang");
+		$object->getActiveSheet()->setTitle("Data Barang");
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header('Content-Disposition: attachment;filename="'.$filename.'"');
 		header('Cache-Control: max-age=0');
