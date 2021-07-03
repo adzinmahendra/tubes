@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">No. Telepon</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Telepon Sumber" name="no_telp" aria-label="teleponSumber" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Telepon Sumber" name="no_telepon" aria-label="teleponSumber" aria-describedby="basic-addon2">
                 </div>
                 <!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Keterangan Market</label>

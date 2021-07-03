@@ -258,7 +258,7 @@ class Kelola extends CI_Controller {
 		$object->getProperties()->setLastModifiedBy("Dfarm");
 		$object->getProperties()->setTitle("Daftar Barang");
 
-		$object->setActiveSheetActive(0);
+		$object->setActiveSheetIndex(0);
 
 		$object->setActiveSheet()->setCellValue('A1', 'NO');
 		$object->setActiveSheet()->setCellValue('B1', 'NAMA BARANG');
