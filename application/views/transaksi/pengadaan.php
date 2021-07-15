@@ -34,7 +34,19 @@
                               <td><?= $no;?></td>
                               <td><?= $b->nama_barang; ?></td>
                               <td>Rp. <?= $b->harga_barang; ?></td>
-                              <td><?= $b->jumlah; ?></td>
+                              <td>
+                                  <div class="row justify-content-between mr-1 ml-1">
+                                      <?= $b->jumlah; ?>
+                                      <?php  ?>
+                                      <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $b->id_barang ?>">
+                                          <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
+                                      </a>
+                                      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                          <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
+                                        </button> -->
+                                  </div>
+
+                              </td>
                               <td><?= $b->satuan; ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
                               <td><?= $b->keterangan_barang; ?></td>
@@ -58,6 +70,7 @@
                             </td>
                         </tr> -->
                     </tbody>
+
                     <!-- <thead>
                       <tr>
                         <th>No.</th>
@@ -98,8 +111,51 @@
                     </tbody> -->
                 </table>
             </div>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     </div>
 <!-- </div> -->
+<?php foreach ($barang as $b): ?>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 </div>

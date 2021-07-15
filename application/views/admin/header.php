@@ -64,7 +64,7 @@
             <h6 class="collapse-header">Supply chain:</h6>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/kategori">Kategori Barang</a>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/gudang">Stok Gudang</a>
-            <a class="collapse-item" href="<?= base_url()?>index.php/kelola/sumber">Sumber Petani</a>
+            <a class="collapse-item" href="<?= base_url()?>index.php/kelola/sumber">Sumber Barang</a>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/penjualan">Harga Jual</a>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/laporanAkhir">Laporan Stok Akhir</a>
           </div>
@@ -131,18 +131,18 @@
       </div>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="<?= base_url()?>index.php/kelola/statistik ">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Statistik</span></a>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="<?= base_url()?>index.php/kelola/penjualan">
           <i class="fas fa-fw fa-table"></i>
           <span>Daftar Harga</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

@@ -30,10 +30,10 @@
                             <h2>Rp. <?php echo $b->harga_barang; ?></h2>
                             <!-- <input type="text" class="form-control bg-light border-1 small" placeholder="Harga" value="<?php echo $b->harga_barang; ?>" name="harga_barang" aria-label="hargaBarang" aria-describedby="basic-addon2"> -->
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleFormControlInput1">Jumlah</label>
                             <input type="number" required class="form-control bg-light border-1 small" placeholder="Jumlah" value="<?php echo $b->jumlah; ?>" name="jumlah" aria-label="jumlah" aria-describedby="basic-addon2">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Jenis</label>
                             <?php if ($b->id_kategori == 0): ?>
