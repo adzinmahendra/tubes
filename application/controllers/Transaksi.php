@@ -92,7 +92,7 @@ class Transaksi extends CI_Controller {
 		$jumlah = $this->input->post('jumlah');
 		$jenis = $this->input->post('jenis');
 		$data = array(
-			'jumlah' => $jumlah,
+			// 'jumlah' => $jumlah,
 			'jenis' => $jenis
 		);
 		$this->M_All->update('barang', $where, $data);
@@ -101,7 +101,18 @@ class Transaksi extends CI_Controller {
 
 	}
 
-	public function tambahPengadaan($id)
+	public function edit_pengadaan($id)
+	{
+		$where = array('id_barang' => $id);
+		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
+		$data['jenis'] = $this->M_All->get('kategori')->result();
+		$data['sumber'] = $this->M_All->get('sumber')->result();
+		$this->load->view('admin/header');
+		$this->load->view('transaksi/edit_pengadaan', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function tambah_pengadaan($id)
 	{
 		$where = array('id_barang' => $id);
 		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
@@ -110,5 +121,23 @@ class Transaksi extends CI_Controller {
 		$this->load->view('admin/header');
 		$this->load->view('transaksi/kuantitas', $data);
 		$this->load->view('admin/footer');
+	}
+
+	public function tambahpengadaan()
+	{
+		$id = $this->input->post('id_barang');
+		$where = array('id_barang' => $id);
+		$jumlah = $this->input->post('banyaknya');
+		for ($i=0; $i < $jumlah; $i++) {
+			$today = date('Y-m-d');
+			$data = array(
+				'id_barang' => $id,
+				'tanggal_pengadaan' => date('Y-m-d'),
+				'tanggal_pengadaan' => date('Y-m-d', strtotime($today. ' + 7 days')),
+				// 'jenis' => $jenis,1
+			);
+			$this->M_All->insert('penerimaan', $data);
+		}
+		redirect('transaksi/pengadaan');
 	}
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2021 at 01:03 PM
+-- Generation Time: Jul 21, 2021 at 02:09 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -61,14 +61,13 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `keterangan_barang`, `harga_barang`, `tanggal`, `jumlah`, `jenis`, `satuan`, `gambar`, `id_sumber`, `id_gudang`, `id_kategori`) VALUES
-(5, 'Stroberi', 'Stroberi Lembang', '34000', '2020-02-04', 10, 'Buah', 'Kg', 'product-2.jpg', 3, 1, 2),
+(5, 'Stroberi', 'Stroberi Lembang', '34000', '2020-02-04', 10, '', 'Kg', 'product-2.jpg', 3, 1, 2),
 (6, 'Kol Ungu', 'Kol Ungu Lembang', '20900', '2020-02-11', 5, 'Sayur', '', 'product-4.jpg', 3, 1, 1),
 (7, 'Brokoli', 'Brokoli Banjaran', '34000', '2020-02-10', 0, '', '', 'product-6.jpg', 1, 1, 0),
 (8, 'Wortel', 'Wortel Majalaya', '20900', '2020-02-10', 0, '', '', 'product-7.jpg', 1, 1, 0),
 (11, 'Tomat', 'Tomat Merah', '20900', '2020-02-11', 0, '', '', 'product-5.jpg', 1, 1, 0),
 (12, 'Jus', 'Jus dari sayr dan buah', '20500', '2020-02-05', 0, '', '', 'product-8.jpg', 1, 1, 0),
-(13, 'Cabai', 'Cabai Merah dari Bogor', '60900', '2020-02-13', 0, '', '', 'product-12.jpg', 1, 1, 0),
-(14, 'Apel', 'Apel Malang', '20900', '2020-02-24', 5, '', 'Kg', 'product-10.jpg', 1, 1, 0);
+(13, 'Cabai', 'Cabai Merah dari Bogor', '60900', '2020-02-13', 0, '', '', 'product-12.jpg', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -284,10 +283,31 @@ INSERT INTO `pembayaran` (`id_pembayaran`, `jenis_pembayaran`) VALUES
 
 CREATE TABLE `penerimaan` (
   `id_penerimaan` int(11) NOT NULL,
-  `nama_barang_diterima` varchar(255) NOT NULL,
+  `id_barang` int(11) NOT NULL,
   `sumber_barang` varchar(255) NOT NULL,
-  `keterangan_penerimaan` varchar(255) NOT NULL
+  `keterangan_penerimaan` varchar(255) NOT NULL,
+  `tanggal_pengadaan` date NOT NULL,
+  `tanggal_batas` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `penerimaan`
+--
+
+INSERT INTO `penerimaan` (`id_penerimaan`, `id_barang`, `sumber_barang`, `keterangan_penerimaan`, `tanggal_pengadaan`, `tanggal_batas`) VALUES
+(1, 5, '', '', '0000-00-00', '0000-00-00'),
+(2, 5, '', '', '0000-00-00', '0000-00-00'),
+(3, 5, '', '', '0000-00-00', '0000-00-00'),
+(4, 5, '', '', '0000-00-00', '0000-00-00'),
+(5, 5, '', '', '0000-00-00', '0000-00-00'),
+(6, 5, '', '', '2021-07-27', '0000-00-00'),
+(7, 5, '', '', '2021-07-27', '0000-00-00'),
+(8, 5, '', '', '2021-07-27', '0000-00-00'),
+(9, 5, '', '', '2021-07-27', '0000-00-00'),
+(10, 5, '', '', '2021-07-27', '0000-00-00'),
+(11, 5, '', '', '2021-07-27', '0000-00-00'),
+(12, 5, '', '', '2021-07-27', '0000-00-00'),
+(13, 5, '', '', '2021-07-27', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -388,8 +408,8 @@ CREATE TABLE `sumber` (
 --
 
 INSERT INTO `sumber` (`id_sumber`, `nama_sumber`, `alamat_sumber`, `no_telepon`) VALUES
-(1, 'Albert Cobain', 'New Holland', '+1235786445'),
-(3, 'Callumn Britte', 'Holland', '');
+(1, 'Albert Cobain', 'New Holland Bandung', '+1235786445'),
+(3, 'Callumn Britte', 'Holland', '+1234454321');
 
 -- --------------------------------------------------------
 
@@ -686,7 +706,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `penerimaan`
 --
 ALTER TABLE `penerimaan`
-  MODIFY `id_penerimaan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penerimaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pengelolaan`
