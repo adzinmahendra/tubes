@@ -90,6 +90,19 @@ class Kelola extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+	function penerimaanBarang($id)
+	{
+		$where = array('id_barang' => $id);
+		$data['barang'] = $this->M_All->view_where('barang', $where)->result();
+		$data['jenis'] = $this->M_All->get('kategori')->result();
+		$data['sumber'] = $this->M_All->get('sumber')->result();
+		$data['stok'] = $this->M_All->view_where('penerimaan', $where)->result();
+		$this->load->view('admin/header');
+		// print_r($data['stok']);
+		$this->load->view('pengelolaan/penerimaan_barang', $data);
+		$this->load->view('admin/footer');
+	}
+
 	public function UpdateBarang()
 	{
 		$id_barang = $this->input->post('id_barang');

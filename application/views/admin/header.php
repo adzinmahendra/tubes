@@ -67,6 +67,7 @@
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/sumber">Sumber Barang</a>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/penjualan">Harga Jual</a>
             <a class="collapse-item" href="<?= base_url()?>index.php/kelola/laporanAkhir">Laporan Stok Akhir</a>
+            <!-- <a class="collapse-item" href="<?= base_url()?>index.php/kelola/penerimaanBarang">Penerimaan Barang</a> -->
           </div>
         </div>
       </li>
@@ -283,8 +284,6 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         <!-- End of Topbar -->
