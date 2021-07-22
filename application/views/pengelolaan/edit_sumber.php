@@ -19,15 +19,15 @@
                 <input type="hidden" name="id_sumber" value="<?php echo $s->id_sumber ?>">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Petani</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" value="<?php echo $s->nama_sumber; ?>" name="nama_sumber" aria-label="namaSumber" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" value="<?php echo $s->nama_sumber; ?>" name="nama_sumber" aria-label="namaSumber" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Alamat Sumber</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Alamat" value="<?php echo $s->alamat_sumber; ?>" name="alamat_sumber" aria-label="alamatSumber" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Alamat" value="<?php echo $s->alamat_sumber; ?>" name="alamat_sumber" aria-label="alamatSumber" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">No. Telepon</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="No. Telepon" value="<?php echo $s->no_telepon; ?>" name="no_telepon" aria-label="noTelepon" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="No. Telepon" value="<?php echo $s->no_telepon; ?>" name="no_telepon" aria-label="noTelepon" aria-describedby="basic-addon2" required>
                 </div>
             <?php } ?>
           </div>

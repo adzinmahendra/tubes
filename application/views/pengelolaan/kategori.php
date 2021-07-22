@@ -19,7 +19,7 @@
           <div class="modal-body">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Kategori</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Kategori" name="nama_kategori" aria-label="namaKategori" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Kategori" name="nama_kategori" aria-label="namaKategori" aria-describedby="basic-addon2" required>
                 </div>
 
           </div>
