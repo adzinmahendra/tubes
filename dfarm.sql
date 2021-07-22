@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2021 at 02:09 AM
+-- Generation Time: Jul 22, 2021 at 07:37 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -287,27 +287,9 @@ CREATE TABLE `penerimaan` (
   `sumber_barang` varchar(255) NOT NULL,
   `keterangan_penerimaan` varchar(255) NOT NULL,
   `tanggal_pengadaan` date NOT NULL,
+  `tanggal_penerimaan` int(11) NOT NULL,
   `tanggal_batas` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `penerimaan`
---
-
-INSERT INTO `penerimaan` (`id_penerimaan`, `id_barang`, `sumber_barang`, `keterangan_penerimaan`, `tanggal_pengadaan`, `tanggal_batas`) VALUES
-(1, 5, '', '', '0000-00-00', '0000-00-00'),
-(2, 5, '', '', '0000-00-00', '0000-00-00'),
-(3, 5, '', '', '0000-00-00', '0000-00-00'),
-(4, 5, '', '', '0000-00-00', '0000-00-00'),
-(5, 5, '', '', '0000-00-00', '0000-00-00'),
-(6, 5, '', '', '2021-07-27', '0000-00-00'),
-(7, 5, '', '', '2021-07-27', '0000-00-00'),
-(8, 5, '', '', '2021-07-27', '0000-00-00'),
-(9, 5, '', '', '2021-07-27', '0000-00-00'),
-(10, 5, '', '', '2021-07-27', '0000-00-00'),
-(11, 5, '', '', '2021-07-27', '0000-00-00'),
-(12, 5, '', '', '2021-07-27', '0000-00-00'),
-(13, 5, '', '', '2021-07-27', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -640,7 +622,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `cart`

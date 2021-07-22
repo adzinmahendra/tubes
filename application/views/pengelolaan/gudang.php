@@ -39,31 +39,31 @@
             <p>Modal body text goes here.</p>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Barang</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Jenis Barang</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Jenis Barang" name="jenis_barang" aria-label="jenisBarang" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Jenis Barang" name="jenis_barang" aria-label="jenisBarang" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Harga Barang</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Harga" name="harga_barang" aria-label="hargaBarang" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Harga" name="harga_barang" aria-label="hargaBarang" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tanggal</label>
-                    <input type="date" class="form-control bg-light border-1 small" placeholder="Tanggal" name="tanggal" aria-label="tanggal" aria-describedby="basic-addon2">
+                    <input type="date" class="form-control bg-light border-1 small" placeholder="Tanggal" name="tanggal" aria-label="tanggal" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Keterangan</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Keterangan" name="keterangan_barang" aria-label="Keterangan" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Keterangan" name="keterangan_barang" aria-label="Keterangan" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Gambar</label>
-                    <input type="file" class="form-control bg-light border-1 small" placeholder="Keterangan" name="gambar" aria-label="Gambar" aria-describedby="basic-addon2">
+                    <input type="file" class="form-control bg-light border-1 small" placeholder="Keterangan" name="gambar" aria-label="Gambar" aria-describedby="basic-addon2" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Sumber</label>
-                    <select class="form-control custom-select bg-light small" name="sumber">
+                    <select class="form-control custom-select bg-light small" name="sumber" required>
                       <option selected>Pilih Sumber Barang</option>
                       <?php
                       foreach ($sumber as $s) {
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Gudang</label>
-                    <select class="form-control custom-select bg-light small" name="gudang">
+                    <select class="form-control custom-select bg-light small" name="gudang" required>
                       <option selected>Pilih Gudang</option>
                       <?php
                       foreach ($gudang as $g) {
