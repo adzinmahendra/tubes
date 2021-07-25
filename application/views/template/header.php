@@ -79,22 +79,22 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="<?= base_url() ?>" class="nav-link">Beranda</a></li>
 	          <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
               	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop">Shop</a>
               	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Wishlist</a>
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Single Product</a>
-                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Cart">Cart</a>
-                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Checkout">Checkout</a>
-                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Category">Category</a>
+                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Cart">Keranjang</a>
+                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Checkout">Periksa</a>
+                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Category">Kategori</a>
               </div>
             </li>
 
-	          <li class="nav-item"><a href="<?= base_url()?>index.php/Welcome/About" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="<?= base_url()?>index.php/Welcome/About" class="nav-link">Tentang Kami</a></li>
 	          <!-- <li class="nav-item"><a href="<?= base_url()?>index.php/blog" class="nav-link">Blog</a></li> -->
-	          <li class="nav-item"><a href="<?= base_url()?>index.php/Shop/Saran" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="<?= base_url()?>index.php/Shop/Saran" class="nav-link">Kontak</a></li>
 	          <li class="nav-item cta cta-colored"><a href="<?= base_url()?>index.php/shop/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $this->M_All->count('cart')?>]</a></li>
               <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Login</a></li> -->
               <?php

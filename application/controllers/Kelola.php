@@ -103,6 +103,13 @@ class Kelola extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+	public function hapus_stok($id)
+	{
+		$where = array('id_penerimaan' => $id);
+		$this->M_All->delete($where,'penerimaan');
+		redirect('kelola/gudang');
+	}
+
 	public function UpdateBarang()
 	{
 		$id_barang = $this->input->post('id_barang');

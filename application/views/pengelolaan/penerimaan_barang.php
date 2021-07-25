@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">Pengadaan Barang</h1>
   </div>
 <!-- <div class="row"> -->
-    <div class="card mb-4">
+    <div class="card shadow mb-4">
         <?php foreach ($barang as $b) {
             ?>
         <div class="card-header py-3">
@@ -91,17 +91,24 @@
                   <tr>
                     <th>No.</th>
                     <th>Tanggal</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tfoot>
-                    <?php $no = 0; foreach ($stok as $s): $no++;?>
-                        <tr>
-                            <th><?= $no?></th>
-                            <th><?= $s->tanggal_pengadaan?></th>
-                        </tr>
-                    <?php endforeach; ?>
                 </tfoot>
                 <tbody>
+                    <?php $no = 0; foreach ($stok as $s): $no++;?>
+                        <tr>
+                            <td><?= $no?></td>
+                            <td><?= $s->tanggal_pengadaan?></td>
+                            <td>
+                                <a href="<?= base_url()?>index.php/Kelola/hapus_stok/<?= $s->id_penerimaan?>" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash fa-sm"></i> Hapus
+                                </a>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
