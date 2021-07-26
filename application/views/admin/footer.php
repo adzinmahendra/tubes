@@ -50,6 +50,44 @@
 
 <script src="<?= base_url('assets_admin/'); ?>datatables/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets_admin/'); ?>datatables/js/dataTables.bootstrap4.min.js"></script>
+<!-- Jquery, Bootstrap dan Typehead -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
+<script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+
+<!-- Page Script -->
+  <script>
+  $(document).ready(function(){
+
+    var sample_data = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch:'<?php echo base_url(); ?>kelola/ambil',
+      remote:{
+        url:'<?php echo base_url(); ?>kelola/ambil/%QUERY',
+        wildcard:'%QUERY'
+      }
+    });
+
+    $('#prefetch .typeahead').typeahead(null, {
+      nama: 'sample_data',
+      display: 'nama_barang',
+      source:sample_data,
+      limit:10,
+      templates:{
+        suggestion:Handlebars.compile('<div class="row"><div class="col-md-12">{{nama_barang}}</div></div>')
+      }
+    });
+
+  });
+  </script>
+
+
 <script>
     $(document).ready(function(){
         $('#dataTable').DataTable();

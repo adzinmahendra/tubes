@@ -17,6 +17,8 @@
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url()?>assets_admin/css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="https://twitter.github.io/typeahead.js/css/examples.css" />
 
 </head>
 <body id="page-top">

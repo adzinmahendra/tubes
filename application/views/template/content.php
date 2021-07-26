@@ -6,9 +6,9 @@
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
 	            <div class="col-md-12 ftco-animate text-center">
-	              <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	              <h1 class="mb-2">Kita Menyediakan sayuran &amp; buah-buahan segar</h1>
+	              <h2 class="subheading mb-4">Kita mrngirim sayuran &amp; buah-buahan</h2>
+	              <p><a href="#" class="btn btn-primary">Lihat Selengkapnya</a></p>
 	            </div>
 
 	          </div>
@@ -21,9 +21,9 @@
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
 	            <div class="col-sm-12 ftco-animate text-center">
-	              <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	              <h1 class="mb-2">100% Segar &amp; Sumber Organik</h1>
+	              <h2 class="subheading mb-4">Kita Menyediakan sayuran &amp; buah-buahan organik</h2>
+	              <p><a href="#" class="btn btn-primary">Lihat Selengkapnya</a></p>
 	            </div>
 
 	          </div>

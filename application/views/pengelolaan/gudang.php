@@ -36,10 +36,12 @@
           </div>
           <form action="<?= base_url()?>index.php/Kelola/TambahBarang" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <!-- <p>Modal body text goes here.</p>x -->
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Barang</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
+                    <div id="prefetch">
+                        <input id="searchBarang" type="text" class="form-control bg-light border-1 small typeahead" placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Jenis Barang</label>
@@ -49,10 +51,10 @@
                     <label for="exampleFormControlInput1">Harga Barang</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Harga" name="harga_barang" aria-label="hargaBarang" aria-describedby="basic-addon2" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Tanggal</label>
                     <input type="date" class="form-control bg-light border-1 small" placeholder="Tanggal" name="tanggal" aria-label="tanggal" aria-describedby="basic-addon2" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Keterangan</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Keterangan" name="keterangan_barang" aria-label="Keterangan" aria-describedby="basic-addon2" required>

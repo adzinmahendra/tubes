@@ -50,7 +50,7 @@ class Kelola extends CI_Controller {
 		$nama_barang = $this->input->post('nama_barang');
 		$jenis = $this->input->post('jenis_barang');
 		$harga_barang = $this->input->post('harga_barang');
-		$tanggal = $this->input->post('tanggal');
+		// $tanggal = $this->input->post('tanggal');
 		$keterangan = $this->input->post('keterangan_barang');
 		$gambar = $this->upload->data('orig_name');
 		$sumber = $this->input->post('sumber');
@@ -61,7 +61,8 @@ class Kelola extends CI_Controller {
 			'harga_barang' => $harga_barang,
 			'gambar' => $gambar,
 			'keterangan_barang' => $keterangan,
-			'tanggal' => $tanggal,
+			// 'tanggal' => $tanggal,
+			'tanggal' => date('Y-m-d'),
 			'jenis' => $jenis,
 			'id_sumber' => $sumber,
 			'id_gudang' => $gudang
@@ -69,6 +70,11 @@ class Kelola extends CI_Controller {
 
 		$this->M_All->insert('barang', $data);
 		redirect('kelola/gudang');
+	}
+
+	public function ambil()
+	{
+		echo $this->M_All->fetch_barang($this->uri->segment(3));
 	}
 
 	public function HapusBarang($id)
@@ -115,7 +121,7 @@ class Kelola extends CI_Controller {
 		$id_barang = $this->input->post('id_barang');
 		$nama_barang = $this->input->post('nama_barang');
 		$harga_barang = $this->input->post('harga_barang');
-		$tanggal = $this->input->post('tanggal');
+		// $tanggal = $this->input->post('tanggal');
 		$keterangan = $this->input->post('keterangan_barang');
 		$sumber = $this->input->post('sumber');
 		$gudang = $this->input->post('gudang');
@@ -125,7 +131,8 @@ class Kelola extends CI_Controller {
 			'nama_barang' => $nama_barang,
 			'harga_barang' => $harga_barang,
 			'keterangan_barang' => $keterangan,
-			'tanggal' => $tanggal,
+			'tanggal' => date('Y-m-d'),
+			// 'tanggal' => $tanggal,
 			'id_sumber' => $sumber,
 			'id_gudang' => $gudang,
 			'id_kategori' => $kategori

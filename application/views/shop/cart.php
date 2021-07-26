@@ -2,7 +2,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Keranjang</span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Beranda</a></span> <span>Keranjang</span></p>
             <h1 class="mb-0 bread">Keranjang Ku</h1>
           </div>
         </div>
@@ -111,13 +111,13 @@
                 <!-- Hasil harga -->
     			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
     				<div class="cart-total mb-3">
-    					<h3>Cart Totals</h3>
+    					<h3>Total Keranjang</h3>
     					<p class="d-flex">
     						<span>Subtotal</span>
     						<span>Rp. <?= $sum_p; ?>.00</span>
     					</p>
     					<p class="d-flex">
-    						<span>Delivery</span>
+    						<span>Biaya Kirim</span>
     						<span>Rp. 0.00</span>
     					</p>
     					<!-- <p class="d-flex">
@@ -134,7 +134,7 @@
                         if($this->session->userdata('status') != "login"){
                             // redirect(base_url("login"));
                     ?>
-                    <p><a href="<?= base_url('index.php/shop/checkout'); ?>" class="btn btn-primary py-3 px-4">Proceed to Checkout !</a></p>
+                    <p><a href="<?= base_url('index.php/shop/checkout'); ?>" class="btn btn-primary py-3 px-4">Lanjut ke Checkout !</a></p>
                     <?php
                         }
                     ?>

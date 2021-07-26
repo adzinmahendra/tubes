@@ -2,8 +2,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checkout</span></p>
-            <h1 class="mb-0 bread">Checkout</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Beranda</a></span> <span>Checkout</span></p>
+            <h1 class="mb-0 bread">Periksa</h1>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
           <div class="col-xl-7 ftco-animate">
 			<form action="<?= base_url('index.php/shop/simpanOrderan/'); ?>" method="post" class="billing-form">
-				<h3 class="mb-4 billing-heading">Billing Details</h3>
+				<h3 class="mb-4 billing-heading">Detail Pembayaran</h3>
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
@@ -90,7 +90,7 @@
                 <div class="row mt-5 pt-3">
 	          	<div class="col-md-12 d-flex mb-5">
 	          		<div class="cart-detail cart-total p-3 p-md-4">
-	          			<h3 class="billing-heading mb-4">Total Belanjaan</h3>
+	          			<h3 class="billing-heading mb-4">Total Pembelian</h3>
 	          			<p class="d-flex">
     						<span>Subtotal</span>
     						<span>Rp. <?= $checkout->jumlah_harga ?>.00</span>

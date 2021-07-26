@@ -32,6 +32,23 @@ class M_All extends CI_Model{
         return $result;
     }
 
+    public function fetch_barang($query)
+    {
+        $this->db->like('nama_barang', $query);
+        $query = $this->db->get('barang');
+
+        if($query->num_rows() > 0)
+        {
+            foreach($query->result_array() as $row)
+            {
+                $output[] = array(
+                    'nama_barang'  => $row["nama_barang"]
+                );
+            }
+            echo json_encode($output);
+        }
+    }
+
 	public function insert($table,$data)
 	{
 		$this->db->insert($table,$data);

@@ -18,7 +18,9 @@
                 <input type="hidden" name="id_barang" value="<?php echo $b->id_barang ?>">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Barang</label>
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Nama Barang" value="<?php echo $b->nama_barang; ?>" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
+                    <div id="prefetch">
+                        <input id="searchBarang" type="text" class="form-control bg-light border-1 small typeahead" placeholder="Nama Barang" value="<?php echo $b->nama_barang; ?>" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
+                    </div>
                 </div>
                 <!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Jenis Barang</label>
@@ -28,10 +30,10 @@
                     <label for="exampleFormControlInput1">Harga Barang</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Harga" value="<?php echo $b->harga_barang; ?>" name="harga_barang" aria-label="hargaBarang" aria-describedby="basic-addon2" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Tanggal</label>
                     <input type="date" class="form-control bg-light border-1 small" placeholder="Tanggal" value="<?php echo $b->tanggal; ?>" name="tanggal" aria-label="tanggal" aria-describedby="basic-addon2" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Keterangan</label>
                     <input type="text" class="form-control bg-light border-1 small" placeholder="Keterangan" value="<?php echo $b->keterangan_barang; ?>" name="keterangan_barang" aria-label="Keterangan" aria-describedby="basic-addon2" required>

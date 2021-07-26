@@ -81,11 +81,11 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="<?= base_url() ?>" class="nav-link">Beranda</a></li>
 	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toko</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop">Shop</a>
-              	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Wishlist</a>
-                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Single Product</a>
+              	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop">Toko</a>
+              	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Daftar Keinginan</a>
+                <!-- <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Single Product</a> -->
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Cart">Keranjang</a>
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Checkout">Periksa</a>
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Category">Kategori</a>
