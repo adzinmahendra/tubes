@@ -36,7 +36,7 @@
                               <td>Rp. <?= $b->harga_barang; ?></td>
                               <td>
                                   <div class="row justify-content-between mr-1 ml-1">
-                                      <?= $b->jumlah; ?>
+                                      <!-- <?= $b->jumlah; ?> -->
                                       <?php  ?>
                                       <a href="<?= base_url() ?>index.php/transaksi/tambah_pengadaan/<?= $b->id_barang ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                                           <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
