@@ -17,7 +17,7 @@
           <div class="info bg-white p-4">
               <p><span>Kontak:</span>
                   <div class="form-group">
-                    <a class="btn-success py-3 px-5" href="https://wa.me/62XXXXXXXXXXX?text=Saya%20tertarik%20dengan%20Komoditas%20Anda%20yang%20dijual">Hubungi melalui whatsapp</a></p>
+                    <a class="btn-success py-3 px-5" href="https://wa.me/6282227436527?text=Saya%20tertarik%20dengan%20Komoditas%20Anda%20yang%20dijual">Hubungi melalui whatsapp</a></p>
                   </div>
             </div>
         </div>
