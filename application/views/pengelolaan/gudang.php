@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Barang</label>
                     <div id="prefetch">
-                        <input id="searchBarang" type="text" class="form-control bg-light border-1 small typeahead" placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
+                        <input id="searchBarang" type="text" class="form-control bg-light border-1 small typeahead  " placeholder="Nama Barang" name="nama_barang" aria-label="namaBarang" aria-describedby="basic-addon2" required>
                     </div>
                 </div>
                 <div class="form-group">

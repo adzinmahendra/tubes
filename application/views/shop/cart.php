@@ -42,7 +42,7 @@
 						        	<p><?= $c->keterangan_barang?></p>
 						        </td>
 
-						        <td class="price">Rp. <?= $c->harga_barang?>.00</td>
+						        <td class="price">Rp. <?= number_format($c->harga_barang, 2, ",", ".");?></td>
 
 						        <td class="quantity">
                                     <form class="form-control" action="<?= base_url('index.php/shop/updateCart'); ?>" method="post">
@@ -54,7 +54,7 @@
                                     </form>
 					          </td>
 
-						        <td class="total">Rp. <?= $c->harga_barang*$c->jumlah_barang; ?>.00</td>
+						        <td class="total">Rp. <?= number_format(($c->harga_barang*$c->jumlah_barang), 2, ",", "."); ?></td>
 						      </tr><!-- END TR-->
                               <?php $sum+= $c->jumlah_barang; ?>
                               <?php $sum_p+= ($c->jumlah_barang*$c->harga_barang); ?>
@@ -65,7 +65,7 @@
 								  <td></td>
                                   <td>Jumlah</td>
 								  <td><?= $sum; ?></td>
-								  <td>Rp. <?= $sum_p; ?>.00</td>
+								  <td>Rp. <?= number_format($sum_p, 2, ",", "."); ?></td>
 							  </tr>
 						    </tbody>
 						  </table>
@@ -114,7 +114,7 @@
     					<h3>Total Keranjang</h3>
     					<p class="d-flex">
     						<span>Subtotal</span>
-    						<span>Rp. <?= $sum_p; ?>.00</span>
+    						<span>Rp. <?= number_format($sum_p, 2, ",", "."); ?></span>
     					</p>
     					<p class="d-flex">
     						<span>Biaya Kirim</span>
@@ -127,7 +127,7 @@
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>Rp. <?= $sum_p; ?>.00</span>
+    						<span>Rp. <?= number_format($sum_p, 2, ",", "."); ?></span>
     					</p>
     				</div>
                     <?php

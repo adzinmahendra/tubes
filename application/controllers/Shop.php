@@ -16,6 +16,11 @@ class Shop extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function rupiah($angka){
+		$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+		return $hasil_rupiah;
+	}
+
 	public function search()
 	{
 		// Ambil data namaBarang yang dikirim via ajax post
