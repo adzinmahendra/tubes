@@ -144,6 +144,7 @@
                     ?>
                     <form class="" action="<?= base_url('index.php/shop/saveCheckout'); ?>" method="post">
                         <input type="hidden" name="jumlah_harga" value="<?= $sum_p; ?>">
+                        <input type="hidden" name="jumlah_barang" value="<?= $sum; ?>">
                         <input class="btn btn-primary py-3 px-4" type="submit" name="" value="Proceed to Checkout">
                     </form>
                     <!-- <p><a href="<?= base_url('index.php/shop/checkout'); ?>" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p> -->

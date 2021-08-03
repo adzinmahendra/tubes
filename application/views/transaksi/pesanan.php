@@ -37,10 +37,10 @@
                         </td>
 
                         <td class="product-name">
-                            <h3><?= $w->jumlah_barang?> Kg</h3>
+                            <h3><?= $w->jumlah_item?> Kg</h3>
                         </td>
 
-                        <td class="price"><?= $w->jumlah_harga?></td>
+                        <td class="price">Rp. <?= number_format($w->jumlah_harga, 2, ",", ".");?></td>
 
                         <!-- <td class="quantity">
                             <div class="input-group mb-3">

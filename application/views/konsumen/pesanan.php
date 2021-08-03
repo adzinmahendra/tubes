@@ -34,7 +34,7 @@
                               <td><?= $p->tanggal; ?></td>
                               <td><?= $p->nama_depan.' '.$p->nama_belakang; ?></td>
                               <td><?= $p->jumlah_harga; ?></td>
-                              <td><?= $p->jumlah_barang; ?></td>
+                              <td><?= $p->jumlah_item; ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
                               <td>
                                   <?php  ?>

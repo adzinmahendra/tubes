@@ -21,6 +21,12 @@ class M_All extends CI_Model{
 		return $this->db->get_where($table,$where);
     }
 
+    // public function update_where($table, $data, $where)
+    // {
+    //     $this->db->update($table, $data, $where);
+    //     // code...
+    // }
+
     public function search($keyword)
     {
         $this->db->like('nama_barang', $keyword);
@@ -99,7 +105,7 @@ class M_All extends CI_Model{
         $this->db->from($from);
         $this->db->join('barang', 'db_cart.id_barang = barang.id_barang');
         $this->db->join('users', 'users.id = db_cart.id_user');
-        $this->db->join('pesanan', 'pesanan.id_user = users.id');
+        $this->db->join('pesanan', 'pesanan.id_pesanan = db_cart.id_pesanan');
         $this->db->join('konsumen', 'konsumen.id_user = users.id');
         $this->db->where($where);
         return $this->db->get();

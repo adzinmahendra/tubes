@@ -58,10 +58,10 @@ class Konsumen extends CI_Controller {
     {
         $where = array('pesanan.id_pesanan' => $id, );
         $data['cart'] = $this->M_All->join_cart_admin('db_cart', $where)->result();
-        print_r($data);
-        // $this->load->view('admin/header');
-        // $this->load->view('konsumen/detail_pesanan', $data);
-        // $this->load->view('admin/footer');
+        // print_r($data);
+        $this->load->view('admin/header');
+        $this->load->view('konsumen/detail_pesanan', $data);
+        $this->load->view('admin/footer');
     }
 
     public function prosesPesanan($id)

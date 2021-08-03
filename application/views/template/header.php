@@ -87,7 +87,7 @@
               	<a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Daftar Keinginan</a>
                 <!-- <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Wishlist">Single Product</a> -->
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Cart">Keranjang</a>
-                <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Checkout">Periksa</a>
+                <!-- <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Checkout">Periksa</a> -->
                 <a class="dropdown-item" href="<?= base_url()?>index.php/Shop/Category">Kategori</a>
               </div>
             </li>

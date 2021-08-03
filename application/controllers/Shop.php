@@ -134,12 +134,14 @@ class Shop extends CI_Controller {
 		}
 
 		$jumlah_harga = $this->input->post('jumlah_harga');
+		$jumlah_barang = $this->input->post('jumlah_barang');
 		$date = date('Y-m-d');
 		$data = array(
 			'email' => $this->session->userdata('mail'),
 			'tanggal' => $date,
 			'id_pesanan' => '0',
 			'jumlah_harga' => $jumlah_harga,
+			'jumlah_item' => $jumlah_barang,
 			'id_user' => $this->session->userdata('id_user'),
 			'id_pembayaran' => '0'
 		);
@@ -195,19 +197,19 @@ class Shop extends CI_Controller {
 			'email' => $email,
 			'id_user' => $this->session->userdata('id_user'),
 			'jumlah_bayar' => $jumlah_bayar,
-			'jumlah_barang' => $jumlah_barang,
+			'jumlah_item' => $jumlah_barang,
 			'tgl_pesan' => date('Y-m-d'),
 		);
-
 
 		$where = array('email' => $email);
 		$this->M_All->update('konsumen', $where, $data);
 		$this->M_All->insert('pesanan', $data2);
 
-		$data_kosong = array('id_pesanan' => 0, );
+		$data_kosong = array('id_pesanan' => 0,);
 		$pemesanan = $this->M_All->select('id_pesanan', 'pesanan', 'id_pesanan', 'DESC')->row();
 		$data_pesanan = array('id_pesanan' => $pemesanan->id_pesanan, );
 		$this->M_All->update('checkout', $data_kosong, $data_pesanan);
+		$this->M_All->update('db_cart', $data_kosong, $data_pesanan);
 
 		$this->M_All->empty('cart');
 

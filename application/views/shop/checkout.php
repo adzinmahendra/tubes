@@ -38,9 +38,6 @@
                             <option value="IN">Indonesia</option>
 		                  	<option value="FR">France</option>
 		                    <option value="IT">Italy</option>
-		                    <option value="SK">South Korea</option>
-		                    <option value="HK">Hongkong</option>
-		                    <option value="JP">Japan</option>
 		                  </select>
 		                </div>
 		            	</div>
@@ -95,7 +92,7 @@
     						<span>Subtotal</span>
     						<span>Rp. <?= $checkout->jumlah_harga ?>.00</span>
                             <input type="hidden" name="jumlahbayar" value="<?= $checkout->jumlah_harga ?>">
-                            <input type="hidden" name="jumlahbarang" value="<?= $this->M_All->count('cart')?>">
+                            <input type="hidden" name="jumlahbarang" value="<?= $checkout->jumlah_item?>">
     					</p>
     					<p class="d-flex">
     						<span>Ongkos Kirim</span>
