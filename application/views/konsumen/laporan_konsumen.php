@@ -50,7 +50,7 @@
                               <td><?= $k->kode_pos; ?></td>
                               <td><?= $k->email; ?></td>
                               <td>
-                                  <a href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $k->id_konsumen ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                                  <a href="<?= base_url() ?>index.php/konsumen/lihatPesananUser/<?= $k->id_user ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                                       <i class="fas fa-eye fa-sm text-white-50"></i> Lihat pesanan
                                   </a>
                                   <!-- <a href="<?= base_url() ?>index.php/konsumen/hapusKonsumen/<?= $k->id_konsumen ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">

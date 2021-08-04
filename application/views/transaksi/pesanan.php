@@ -37,7 +37,7 @@
                         </td>
 
                         <td class="product-name">
-                            <h3><?= $w->jumlah_item?> Kg</h3>
+                            <h3><?= $w->jumlah_item?> kg</h3>
                         </td>
 
                         <td class="price">Rp. <?= number_format($w->jumlah_harga, 2, ",", ".");?></td>

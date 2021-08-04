@@ -15,13 +15,13 @@
                 ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="<?= base_url()?>index.php/shop/isiKategori/<?= $b->id_kategori?>" class="img-prod"><img class="img-fluid" src="<?= base_url('assets_admin/img/gambar_barang/'); ?>" alt="Colorlib Template">
+                    <a href="<?= base_url()?>index.php/shop/isiKategori/<?= $b->id_kategori?>" class="img-prod"><img class="img-fluid" src="<?= base_url('assets/images/').$b->gambar_kategori; ?>" alt="Colorlib Template">
                         <!-- <span class="status">30%</span> -->
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
                         <h3><a href="<?= base_url()?>index.php/shop/isiKategori/<?= $b->id_kategori?>"><?= $b->kategori;?></a></h3>
-                        
+
                     </div>
                 </div>
             </div>

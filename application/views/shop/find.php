@@ -1,5 +1,5 @@
-<?php 
-if (!empty($barang)) {    
+<?php
+if (!empty($barang)) {
 foreach ($barang as $b) {
                 ?>
             <div class="col-md-6 col-lg-3">
@@ -14,7 +14,7 @@ foreach ($barang as $b) {
                             <div class="pricing">
                                 <p class="price">
                                     <!-- <span class="mr-2 price-dc">$120.00</span> -->
-                                    <span class="price-sale">Rp. <?= $b->harga_barang;?></span>
+                                    <span class="price-sale">Rp. <?= number_format($b->harga_barang, 2, ",", ".");?></span>
                                 </p>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ foreach ($barang as $b) {
                 </div>
             </div>
             <?php
-        } 
+        }
 }else {
     ?>
         <div class="col-md-6 col-lg-3">
@@ -57,5 +57,5 @@ foreach ($barang as $b) {
     <?php
 
 }
-        
+
 ?>

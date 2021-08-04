@@ -17,7 +17,7 @@
                     <thead>
                         <tr>
                             <td>No.</td>
-                            <td>Id Pesanan</td>
+                            <!-- <td>Id Pesanan</td> -->
                             <td>Nama Konsumen</td>
                             <td>Email</td>
                             <td>Nama Barang</td>
@@ -28,18 +28,24 @@
                     <tbody>
                         <?php
                             $no = 1;
+
+                            $totoal_harga = 0;
+                            $total_item = 0;
                             foreach($cart as $p){
                         ?>
                           <tr>
                               <td><?= $no;?></td>
-                              <td><?= $p->id_pesanan; ?></td>
+                              <!-- <td><?= $p->id_pesanan; ?></td> -->
                               <td><?= $p->nama_depan.' '.$p->nama_belakang; ?></td>
                               <td><?= $p->email; ?></td>
                               <td><?= $p->nama_barang; ?></td>
-                              <td><?= $p->harga_barang; ?></td>
+                              <td>Rp. <?= number_format($p->harga_barang, 2, ",", "."); ?></td>
                               <td><?= $p->jumlah_barang; ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
-
+                              <?php
+                                $totoal_harga += $p->harga_barang;
+                                $total_item += $p->jumlah_barang;
+                               ?>
                           </tr>
                           <?php $no++; } ?>
                         <!-- <tr>
@@ -62,16 +68,13 @@
                         <th>Action</th>
                       </tr>
                     </thead> -->
-                    <!-- <tfoot>
+                    <tfoot>
                       <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th colspan="4">TOTAL</th>
+                        <th>Rp. <?= number_format($totoal_harga, 2, ",", ".");   ?></th>
+                        <th><?= $total_item; ?> Item</th>
                       </tr>
-                    </tfoot> -->
+                    </tfoot>
                     <!-- <tbody>
                       <?php
                           $no = 1;

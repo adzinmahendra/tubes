@@ -24,7 +24,7 @@
 								<a href="#" class="mr-2" style="color: #000;">300 <span style="color: #bbb;">Sold</span></a>
 							</p>
 						</div>
-    				<p class="price"><span>Rp. <?= $b->harga_barang ?> / <?= $b->satuan ?></span></p>
+    				<p class="price"><span>Rp. <?= number_format($b->harga_barang, 2, ",", ".");?> / <?= $b->satuan ?></span></p>
     				<p><?= $b->keterangan_barang  ?></p>
 						<div class="row mt-4">
 							<div class="col-md-6">

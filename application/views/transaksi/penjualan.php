@@ -29,8 +29,8 @@
                         foreach ($penjualan as $p): ?>
                         <tr>
                             <td><?php $no++; echo $no; ?></td>
-                            <td><?= $p->jumlah_bayar ?></td>
-                            <td><?= $p->jumlah_barang ?></td>
+                            <td>Rp. <?= number_format($p->jumlah_bayar, 2, ",", "."); ?></td>
+                            <td><?= $p->jumlah_item ?></td>
                             <td><?= $p->email ?></td>
                             <td>
                                 <a href="<?= base_url() ?>index.php/kelola/gudang" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
