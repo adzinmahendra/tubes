@@ -39,7 +39,7 @@
                                 <p><?= $w->keterangan_barang?></p>
                             </td>
 
-                            <td class="price"><?= $w->harga_barang?></td>
+                            <td class="price">Rp. <?= number_format($w->harga_barang, 2, ",", ".") ?></td>
 
                             <!-- <td class="quantity">
                                 <div class="input-group mb-3">
