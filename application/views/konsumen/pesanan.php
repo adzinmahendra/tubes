@@ -9,6 +9,7 @@
         <!-- <a href="#" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i> Cetak</a> -->
         <a href="#" class="btn btn-primary" onclick="window.print()"><i class="fas fa-download fa-sm text-white-50"></i> Cetak</a>
         <a href="<?= base_url()?>index.php/konsumen/excel" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i> Export</a>
+        <a href="<?= base_url()?>index.php/konsumen/pdf_pesanan" class="btn btn-primary"><i class="fas fa-download fa-sm text-white-50"></i> PDF</a>
     </div>
   </div>
 <!-- <div class="row"> -->
@@ -62,44 +63,7 @@
                             </td>
                         </tr> -->
                     </tbody>
-                    <!-- <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Nama</th>
-                        <th>Harga</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead> -->
-                    <!-- <tfoot>
-                      <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                      </tr>
-                    </tfoot> -->
-                    <!-- <tbody>
-                      <?php
-                          $no = 1;
-                          foreach($barang as $b){
-                      ?>
-                        <tr>
-                            <td><?= $no;?></td>
-                            <td><?= $b->nama_barang; ?></td>
-                            <td>Rp. <?= $b->harga_barang; ?></td>
-                            <td>
-                                <a href="<?= base_url() ?>index.php/kelola/editbarang/<?= $b->id_barang ?>" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
-                                    <i class="fas fa-pen fa-sm text-white-50"></i> Edit
-                                </a>
-                                <a href="<?= base_url() ?>index.php/kelola/hapusbarang/<?= $b->id_barang ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                    <i class="fas fa-trash fa-sm text-white-50"></i> Hapus
-                                </a>
-                            </td>
-                        </tr>
-                        <?php $no++; } ?>
-                    </tbody> -->
+                    
                 </table>
             </div>
         </div>

@@ -136,7 +136,7 @@
                           <tr>
                               <td><?= $no;?></td>
                               <td><?= $b->nama_barang; ?></td>
-                              <td><?= $b->harga_barang; ?></td>
+                              <td>Rp. <?= number_format($b->harga_barang, 2, ",", ".") ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" height="100"></td> -->
                               <td><?= $b->id_kategori; ?></td>
                               <td><?= $b->tanggal; ?></td>

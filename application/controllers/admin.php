@@ -18,6 +18,12 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function header()
+	{
+		$this->load->view('admin/header',$data);
+		// code...
+	}
+
 	public function index()
 	{
 		$data['pesanan'] = $this->M_All->count('pesanan');

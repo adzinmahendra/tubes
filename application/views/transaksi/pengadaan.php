@@ -33,7 +33,7 @@
                           <tr>
                               <td><?= $no;?></td>
                               <td><?= $b->nama_barang; ?></td>
-                              <td>Rp. <?= $b->harga_barang; ?></td>
+                              <td>Rp. <?= number_format($b->harga_barang, 2, ",", ".") ?></td>
                               <td>
                                   <div class="row justify-content-between mr-1 ml-1">
                                       <!-- <?= $b->jumlah; ?> -->

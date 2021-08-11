@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2021 at 08:59 AM
+-- Generation Time: Aug 11, 2021 at 04:24 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -61,7 +61,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `keterangan_barang`, `harga_barang`, `tanggal`, `jumlah`, `jenis`, `satuan`, `gambar`, `id_sumber`, `id_gudang`, `id_kategori`) VALUES
-(5, 'Stroberi', 'Stroberi Lembang', '34000', '2020-02-04', 10, '', 'Kg', 'product-2.jpg', 3, 1, 2),
+(5, 'Stroberi', 'Stroberi Lembang', '34000', '2020-02-04', 10, '', 'kg', 'product-2.jpg', 3, 1, 2),
 (6, 'Kol Ungu', 'Kol Ungu Lembang', '20900', '2020-02-11', 5, 'Sayur', '', 'product-4.jpg', 3, 1, 1),
 (7, 'Brokoli', 'Brokoli Banjaran', '34000', '2020-02-10', 0, '', '', 'product-6.jpg', 1, 1, 0),
 (8, 'Wortel', 'Wortel Majalaya', '20900', '2020-02-10', 0, '', '', 'product-7.jpg', 1, 1, 0),
@@ -87,13 +87,6 @@ CREATE TABLE `cart` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id_cart`, `keterangan_cart`, `jumlah_bayar`, `jumlah_barang`, `size`, `id_transaksi`, `id_barang`, `email`, `id_user`) VALUES
-(6, 'beli', 1, 1, '', 1, 5, 'guest', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -118,7 +111,9 @@ CREATE TABLE `checkout` (
 
 INSERT INTO `checkout` (`id_checkout`, `keterangan_checkout`, `email`, `tanggal`, `id_pesanan`, `jumlah_harga`, `jumlah_item`, `id_pembayaran`, `id_user`) VALUES
 (2, '', 'qwe@gmail.com', '2021-08-03', 1, 143800, 5, 0, 2),
-(3, '', 'qwe@gmail.com', '2021-08-03', 2, 54900, 2, 0, 2);
+(3, '', 'qwe@gmail.com', '2021-08-03', 2, 54900, 2, 0, 2),
+(4, '', 'qwe@gmail.com', '2021-08-09', 3, 34000, 1, 0, 2),
+(5, '', 'qwe@gmail.com', '2021-08-11', 4, 54900, 2, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -148,7 +143,10 @@ INSERT INTO `db_cart` (`id_db_cart`, `id_cart`, `keterangan_cart`, `jumlah_bayar
 (1, 2, 'beli', 1, 3, '', 1, 5, 2, '', 1),
 (2, 3, 'beli', 1, 2, '', 1, 6, 2, '', 1),
 (3, 4, 'beli', 1, 1, '', 1, 6, 2, '', 2),
-(4, 5, 'beli', 1, 1, '', 1, 5, 2, '', 2);
+(4, 5, 'beli', 1, 1, '', 1, 5, 2, '', 2),
+(5, 6, 'beli', 1, 1, '', 1, 5, 2, '', 3),
+(6, 7, 'beli', 1, 1, '', 1, 5, 2, '', 4),
+(7, 8, 'beli', 1, 1, '', 1, 6, 2, '', 4);
 
 -- --------------------------------------------------------
 
@@ -224,7 +222,7 @@ CREATE TABLE `konsumen` (
 --
 
 INSERT INTO `konsumen` (`id_konsumen`, `nama_depan`, `nama_belakang`, `keterangan_konsumen`, `alamat_konsumen`, `kota`, `no_telepon_konsumen`, `kode_pos`, `email`, `id_user`) VALUES
-(3, 'Annissa', 'Angela', '', '', 'qwe', '082282710200', '', 'qwe@gmail.com', 2);
+(3, 'Annissa', 'Angela', '', 'Bandung', 'qwe', '082282710200', '39153', 'qwe@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -371,7 +369,9 @@ CREATE TABLE `pesanan` (
 
 INSERT INTO `pesanan` (`id_pesanan`, `grup_pesanan`, `jumlah_bayar`, `jumlah_item`, `id_transaksi`, `id_user`, `email`, `tgl_pesan`) VALUES
 (1, 0, 143800, 5, 0, 2, 'qwe@gmail.com', '2021-08-03'),
-(2, 0, 54900, 2, 0, 2, 'qwe@gmail.com', '2021-08-03');
+(2, 0, 54900, 2, 0, 2, 'qwe@gmail.com', '2021-08-03'),
+(3, 0, 34000, 1, 0, 2, 'qwe@gmail.com', '2021-08-09'),
+(4, 0, 54900, 2, 0, 2, 'qwe@gmail.com', '2021-08-11');
 
 -- --------------------------------------------------------
 
@@ -635,19 +635,19 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `db_cart`
 --
 ALTER TABLE `db_cart`
-  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `distribusi`
@@ -719,7 +719,7 @@ ALTER TABLE `pesan`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sumber`

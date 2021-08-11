@@ -39,11 +39,11 @@
                               <td><?= $p->nama_depan.' '.$p->nama_belakang; ?></td>
                               <td><?= $p->email; ?></td>
                               <td><?= $p->nama_barang; ?></td>
-                              <td>Rp. <?= number_format($p->harga_barang, 2, ",", "."); ?></td>
+                              <td>Rp. <?= number_format(($p->harga_barang*$p->jumlah_barang), 2, ",", "."); ?></td>
                               <td><?= $p->jumlah_barang; ?></td>
                               <!-- <td><img src="<?= base_url('assets_admin/img/gambar_barang/'.$b->gambar); ?>" width="100" height="100"></td> -->
                               <?php
-                                $totoal_harga += $p->harga_barang;
+                                $totoal_harga += $p->harga_barang*$p->jumlah_barang;
                                 $total_item += $p->jumlah_barang;
                                ?>
                           </tr>

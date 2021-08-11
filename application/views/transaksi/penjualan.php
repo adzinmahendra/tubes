@@ -20,7 +20,7 @@
                             <td>Harga Barang</td>
                             <td>Kuantitas</td>
                             <td>Email</td>
-                            <td>Action</td>
+                            <!-- <td>Action</td> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +32,11 @@
                             <td>Rp. <?= number_format($p->jumlah_bayar, 2, ",", "."); ?></td>
                             <td><?= $p->jumlah_item ?></td>
                             <td><?= $p->email ?></td>
-                            <td>
+                            <!-- <td>
                                 <a href="<?= base_url() ?>index.php/kelola/gudang" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                                     <i class="fas fa-pen fa-sm text-white-50"></i> Update
                                 </a>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

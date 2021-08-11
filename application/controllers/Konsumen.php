@@ -6,6 +6,7 @@ class Konsumen extends CI_Controller {
     function __construct(){
 		parent::__construct();
 		$this->load->model('M_All');
+        $this->load->library('pdf');
 		$this->load->helper(array('form', 'url'));
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("index.php/user/login"));
@@ -52,6 +53,39 @@ class Konsumen extends CI_Controller {
         $this->load->view('admin/header');
         $this->load->view('konsumen/pesanan', $data);
         $this->load->view('admin/footer');
+    }
+
+    public function pdf_pesanan()
+    {
+        $data['pesanan'] = $this->M_All->join_pesanan('pesanan', 'checkout')->result();
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf->AddPage('L', 'mm', 'A4');
+        $pdf->SetFont('', 'B', 14);
+        $pdf->Cell(277, 10, "DAFTAR PESANAN DFARM", 0, 1, 'C');
+        $pdf->SetAutoPageBreak(true, 0);
+        // Add Header
+        $pdf->Ln(10);
+        $pdf->SetFont('', 'B', 12);
+        $pdf->Cell(20, 8, "No.", 1, 0, 'C');
+        $pdf->Cell(50, 8, "Tanggal", 1, 0, 'C');
+        $pdf->Cell(120, 8, "Nama Konsumen", 1, 0, 'C');
+        $pdf->Cell(50, 8, "Jumlah Harga", 1, 0, 'C');
+        $pdf->Cell(37, 8, "Jumlah Barang", 1, 1, 'C');
+        $pdf->SetFont('', '', 12);
+
+        $no=0;
+        foreach ($data['pesanan'] as $p) {
+            $no++;
+            $pdf->Cell(20, 8, $no, 1, 0, 'C');
+            $pdf->Cell(50, 8, $p->tanggal, 1, 0, 'C');
+            $pdf->Cell(120, 8, $p->nama_depan.' '.$p->nama_belakang, 1, 0, 'C');
+            $pdf->Cell(50, 8, "Rp. ".number_format($p->jumlah_harga, 2, ",", "."), 1, 0, 'L');
+            $pdf->Cell(37, 8, $p->jumlah_item, 1, 1, 'C');
+            // code...
+        }
+        $pdf->SetFont('', 'B', 10);
+        $pdf->Cell(277, 10, "Laporan Pdf Menggunakan Tcpdf", 0, 1, 'L');
+        $pdf->Output('Laporan-pesanan-dfarm.pdf');
     }
 
     public function excel()

@@ -220,6 +220,7 @@
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
+                
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">

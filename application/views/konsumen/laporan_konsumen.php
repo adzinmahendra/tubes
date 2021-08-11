@@ -16,7 +16,7 @@
                         <tr>
                           <th>No.</th>
                           <th>Nama Konsumen</th>
-                          <th>Keterangan</th>
+                          <!-- <th>Keterangan</th> -->
                           <th>Alamat</th>
                           <th>Kota</th>
                           <th>NomorTelepon</th>
@@ -43,7 +43,7 @@
                           <tr>
                               <td><?= $no;?></td>
                               <td><?= $k->nama_depan; ?> <?= $k->nama_belakang; ?></td>
-                              <td><?= $k->keterangan_konsumen; ?></td>
+                              <!-- <td><?= $k->keterangan_konsumen; ?></td> -->
                               <td><?= $k->alamat_konsumen; ?></td>
                               <td><?= $k->kota; ?></td>
                               <td><?= $k->no_telepon_konsumen; ?></td>

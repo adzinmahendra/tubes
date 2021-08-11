@@ -51,7 +51,7 @@
 		            </div>
 		            <div class="col-md-6">
 		            	<div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)" name="alamat_lengkap" value="">
+	                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)" name="alamat_lengkap" value="<?= $user->alamat_konsumen; ?>">
 	                </div>
 		            </div>
 		            <div class="w-100"></div>
@@ -64,7 +64,7 @@
 		            <div class="col-md-6">
 		            	<div class="form-group">
 		            		<label for="postcodezip">Kode Pos</label>
-	                  <input type="text" class="form-control" placeholder="" name="kode_pos" value="">
+	                  <input type="text" class="form-control" placeholder="" name="kode_pos" value="<?= $user->kode_pos?>">
 	                </div>
 		            </div>
 		            <div class="w-100"></div>
@@ -90,7 +90,7 @@
 	          			<h3 class="billing-heading mb-4">Total Pembelian</h3>
 	          			<p class="d-flex">
     						<span>Subtotal</span>
-    						<span>Rp. <?= $checkout->jumlah_harga ?>.00</span>
+    						<span>Rp. <?= number_format($checkout->jumlah_harga, 2, ",", "."); ?></span>
                             <input type="hidden" name="jumlahbayar" value="<?= $checkout->jumlah_harga ?>">
                             <input type="hidden" name="jumlahbarang" value="<?= $checkout->jumlah_item?>">
     					</p>
@@ -105,7 +105,7 @@
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>Rp. <?= $checkout->jumlah_harga ?>.00</span>
+    						<span>Rp. <?= number_format($checkout->jumlah_harga, 2, ",", "."); ?></span>
     					</p>
 					</div>
 	          	</div>
