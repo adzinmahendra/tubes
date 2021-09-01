@@ -17,21 +17,22 @@
                     <thead>
                         <tr>
                             <td>No.</td>
-                            <td>Harga Barang</td>
-                            <td>Kuantitas</td>
                             <td>Email</td>
+                            <td>Kuantitas</td>
+                            <td>Harga Barang</td>
                             <!-- <td>Action</td> -->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 0;
+                        $sum = 0;
                         foreach ($penjualan as $p): ?>
                         <tr>
                             <td><?php $no++; echo $no; ?></td>
-                            <td>Rp. <?= number_format($p->jumlah_bayar, 2, ",", "."); ?></td>
-                            <td><?= $p->jumlah_item ?></td>
                             <td><?= $p->email ?></td>
+                            <td><?= $p->jumlah_item ?></td>
+                            <td>Rp. <?= number_format($p->jumlah_bayar, 2, ",", "."); $sum += $p->jumlah_bayar?></td>
                             <!-- <td>
                                 <a href="<?= base_url() ?>index.php/kelola/gudang" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                                     <i class="fas fa-pen fa-sm text-white-50"></i> Update
@@ -48,16 +49,12 @@
                         <th>Action</th>
                       </tr>
                     </thead> -->
-                    <!-- <tfoot>
+                    <tfoot>
                       <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th colspan="3">Jumlah</th>
+                        <th>Rp. <?= number_format($sum, 2, ",", ".");?></th>
                       </tr>
-                    </tfoot> -->
+                    </tfoot>
                     <!-- <tbody>
                       <?php
                           $no = 1;

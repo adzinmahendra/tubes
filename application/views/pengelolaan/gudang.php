@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <?php if ($this->session->flashdata('success')): ?>
+    <!-- <?php if ($this->session->flashdata('success')): ?>
 		<div class="alert alert-success" role="alert">
 			<?php echo $this->session->flashdata('success'); ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -10,9 +10,9 @@
 	<?php endif; ?>
     <?php if ($this->session->flashdata('error')): ?>
 		<div class="alert alert-success" role="alert">
-			<?php echo $this->session->flashdata('success'); ?>
+			<?php echo $this->session->flashdata('error'); ?>
 		</div>
-	<?php endif; ?>
+	<?php endif; ?> -->
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Stok Gudang</h1>

@@ -96,16 +96,16 @@
 	                <input type="text" class="form-control text-left px-3" placeholder="">
 	              </div>
 	              <div class="form-group">
-	              	<label for="country">State/Province</label>
+	              	<label for="country">Provinsi</label>
 	                <input type="text" class="form-control text-left px-3" placeholder="">
 	              </div>
 	              <div class="form-group">
-	              	<label for="country">Zip/Postal Code</label>
+	              	<label for="country">Kode Pos</label>
 	                <input type="text" class="form-control text-left px-3" placeholder="">
 	              </div>
 	            </form>
     				</div>
-    				<p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a></p>
+    				<p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimasi</a></p>
     			</div>
 
                 <!-- Hasil harga -->

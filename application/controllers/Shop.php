@@ -88,10 +88,17 @@ class Shop extends CI_Controller {
 
 	public function wishlist()
 	{
-		$data['wishlist'] = $this->M_All->join_wishlist('barang', 'wishlist')->result();
-		$this->load->view('template/header');
-		$this->load->view('shop/wishlist', $data);
-		$this->load->view('template/footer');
+		if($this->session->userdata('status') != "login"){
+			$data['wishlist'] = $this->M_All->join_wishlist('barang', 'wishlist')->result();
+			$this->load->view('template/header');
+			$this->load->view('shop/wishlist', $data);
+			$this->load->view('template/footer');
+		}else {
+			$data['wishlist'] = $this->M_All->join_wishlist('barang', 'wishlist')->result();
+			$this->load->view('template/header');
+			$this->load->view('shop/wishlist', $data);
+			$this->load->view('template/footer');
+		}
 	}
 
 	public function addWishlist($id)
@@ -104,7 +111,8 @@ class Shop extends CI_Controller {
 		$data = array(
 			'keterangan_wishlist' => $keterangan_wishlist,
 			'total' => $jumlah_barang,
-			'id_barang' => $id_barang
+			'id_barang' => $id_barang,
+			'id_user' => $this->session->userdata('id_user'),
 		);
 
 		$this->M_All->insert('wishlist', $data);
@@ -123,7 +131,7 @@ class Shop extends CI_Controller {
 		// $cart = $this->M_All->join_cart('barang', 'cart')->result();
 		$mail = array(
 			'id_user' => $this->session->userdata('id_user'),
-			'email' => $this->session->userdata('email'),
+			'email' => $this->session->userdata('mail'),
 		);
 		$where = array('email' => 'guest');
 		$this->M_All->update('cart', $where, $mail);
@@ -283,5 +291,50 @@ class Shop extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('shop/home', $data);
 		$this->load->view('template/footer');
+	}
+
+	public function Profile()
+	{
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("index.php/user/LoginCheckout"));
+		}
+		$mail = $this->session->userdata('mail');
+		$where = array('email' => $mail);
+		$data['konsumen'] = $this->M_All->view_where('konsumen', $where)->row();
+		// print_r($data);
+		$this->load->view('template/header');
+		$this->load->view('shop/profile', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function editProfile()
+	{
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("index.php/user/LoginCheckout"));
+		}
+		$mail = $this->session->userdata('mail');
+		$where = array('email' => $mail);
+		$data['konsumen'] = $this->M_All->view_where('konsumen', $where)->row();
+		// print_r($data);
+		$this->load->view('template/header');
+		$this->load->view('shop/edit_profile', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function saveProfile()
+	{
+		$data = [
+			'nama_depan' => $this->input->post('nama_depan'),
+			'nama_belakang' => $this->input->post('nama_belakang'),
+			'kota' => $this->input->post('kota'),
+			'no_telepon_konsumen' => $this->input->post('nomor_telepon'),
+			'kode_pos' => $this->input->post('kode_pos'),
+			'alamat_konsumen' => $this->input->post('alamat_lengkap'),
+		];
+		$where = array('email' => $this->session->userdata('mail'),);
+		// print_r($where);
+		$this->M_All->update('konsumen', $where, $data);
+		redirect('shop/profile');
+
 	}
 }

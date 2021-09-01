@@ -3,7 +3,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Profile </h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="window.print()"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
   </div>
 
@@ -45,34 +45,23 @@
                         <div class="row">
                             <div class="col-12">
                                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <h3><?= $profile->email ?></h3>
-                                <hr>
-                                <!-- <input type="text" name="email" value="<?= $profile->email ?>" class="form-control mb-3"> -->
+                                <input type="text" name="email" value="<?= $profile->email ?>" class="form-control mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Username</label>
-                                <h3><?= $profile->username ?></h3>
-                                <hr>
-                                <label for="exampleFormControlInput1" class="form-label">Role</label>
-                                <h3><?= $profile->role ?></h3>
-                                <hr>
-                                <!-- <input type="text" name="username" value="<?= $profile->username ?>" class="form-control mb-3"> -->
+                                <input type="text" name="username" value="<?= $profile->username ?>" class="form-control mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Full Name</label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <h3><?= $admin->nama_depan ?? ""?></h3>
-                                        <!-- <input type="text" name="nama_depan" value="<?= $admin->nama_depan ?? ""?>" class="form-control mb-3" placeholder="Nama Depan"> -->
+                                        <input type="text" name="nama_depan" value="<?= $admin->nama_depan ?? ""?>" class="form-control mb-3" placeholder="Nama Depan">
                                     </div>
                                     <div class="col-6">
-                                        <h3><?= $admin->nama_belakang ?? ""?></h3>
-                                        <!-- <input type="text" name="nama_belakang" value="<?= $admin->nama_belakang ?? ""?>" class="form-control mb-3" placeholder="Nama Belakang"> -->
+                                        <input type="text" name="nama_belakang" value="<?= $admin->nama_belakang ?? ""?>" class="form-control mb-3" placeholder="Nama Belakang">
                                     </div>
                                 </div>
-                                <hr>
-                                <!-- <label for="exampleFormControlInput1" class="form-label">Password</label> -->
-                                <!-- <input type="password" name="password" value="<?= $profile->password ?>" class="form-control mb-3"> -->
+                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="password" name="password" value="" class="form-control mb-3" placeholder="Masukan kata sandi baru" required>
                                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                                <!-- <input type="submit" name="" value="Simpan" class="btn btn-success"> -->
-                                <!-- <input type="submit" name="" value="Simpan" class="btn btn-success"> -->
-                                <a href="<?= base_url('index.php/admin/editProfile')?>" class="btn btn-success">Edit</a>
+                                <a href="<?= base_url('index.php/admin/profile')?>" class="btn btn-warning">Kembali</a>
+                                <input type="submit" name="" value="Simpan" class="btn btn-success">
                             </form>
                         </div>
                     </div>

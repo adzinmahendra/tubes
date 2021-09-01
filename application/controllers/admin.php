@@ -57,8 +57,27 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
-	public function updateProfile($id)
+	public function editProfile()
 	{
+		$id_user = $this->session->userdata('id_user');
+		$where = [
+			'id' => $id_user,
+		];
+		$where2 = [
+			'id_user' => $id_user,
+		];
+		$data['profile'] = $this->M_All->view_where('users', $where)->row();
+		$data['admin'] = $this->M_All->view_where('admin', $where2)->row();
+		// print_r($data);
+		$this->load->view('admin/header');
+		$this->load->view('admin/edit_profile', $data);
+		$this->load->view('admin/footer');// code...
+	}
+
+	public function updateProfile()
+	{
+		$id = $this->session->userdata('id_user');
+
 		$config['upload_path']          = './assets_admin/img/gambar_user/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['overwrite']        	= true;
@@ -78,24 +97,43 @@ class Admin extends CI_Controller {
 			// $this->load->view('pengelolaan/gudang', $data);
 		}
 
+		$gambar = $this->upload->data('orig_name');
+
 		$data = [
 			'nama_depan' => $this->input->post('nama_depan'),
 			'nama_belakang' => $this->input->post('nama_belakang'),
-			'gambar' => $this->upload->data('orig_name'),
+			'gambar' => $gambar,
 			'id_user' => $id,
 		];
 
+		$username = $this->input->post('username');
+		$role = $this->input->post('role');
+		$email = $this->input->post('email');
+
 		$data_user = [
-			'email' => $this->input->post('email'),
-			'role' => $this->input->post('role'),
+			'email' => $email,
+			// 'role' => $role,
+			'username' => $username,
 			'password' => md5($this->input->post('password')),
 		];
 
 		$where = [
-			'id_user' => $id,
+			'id' => $id,
 		];
 		$this->M_All->update('users', $where, $data_user);
 		$this->M_All->insert('admin', $data);
+
+		$data_session = array(
+			'nama' => $username,
+			'status' => "login",
+			// 'role' => $role,
+			'mail' => $role->email,
+			'gambar_user' => $gambar
+			);
+
+		$this->session->set_userdata($data_session);
+		// menerapkan data session sesuai dengan nama username
+		// redirect(base_url("index.php/admin"));
 
 		redirect('admin/profile');
 	}
