@@ -191,6 +191,9 @@ class User extends CI_Controller {
 
     public function pesanan()
     {
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("index.php/user/login"));
+		}
         $where = [
             'pesanan.id_user' => $this->session->userdata('id_user')
         ];
@@ -199,5 +202,87 @@ class User extends CI_Controller {
         $this->load->view('template/header');
 		$this->load->view('transaksi/pesanan', $data);
 		$this->load->view('template/footer');
+    }
+
+    public function uploadBukti($id)
+    {
+        $where = ['pesanan.id_pesanan' => $id];
+        $data['pesanan'] = $this->M_All->join_pesanan_where('pesanan', 'checkout', $where)->row();
+
+        $this->load->view('template/header');
+		$this->load->view('transaksi/upload_bukti', $data);
+		$this->load->view('template/footer');
+    }
+
+    public function actionUploadBukti()
+    {
+        // code...
+        $config['upload_path']          = './assets_admin/img/gambar_bukti_bayar/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['overwrite']        	= true;
+		$config['max_size']             = 1024;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('bukti_bayar')){
+			$this->session->set_flashdata('error', $this->upload->display_errors());
+			$data = array('error' => $this->upload->display_errors());
+			// $this->load->view('pengelolaan/gudang', $data);
+		}else{
+			$this->session->set_flashdata('success', 'Berhasil di Upload');
+			$data = array('success' => $this->upload->data('bukti_bayar'));
+			// $this->load->view('pengelolaan/gudang', $data);
+		}
+
+        $gambar = $this->upload->data('orig_name');
+
+        $data = [
+            'bukti_transaksi'=> $gambar,
+        ];
+
+        $data2 = [
+            'grup_pesanan'=> 2,
+        ];
+
+        $where = [
+            'id_pesanan' => $this->input->post('id_pesanan'),
+
+        ];
+
+        $this->M_All->update('transaksi', $where, $data);
+        $this->M_All->update('pesanan', $where, $data2);
+
+        redirect('user/pesanan');
+    }
+    public function cekPesanan($id)
+    {
+        $where = ['pesanan.id_pesanan' => $id];
+        $data['pesanan'] = $this->M_All->join_pesanan_where('pesanan', 'checkout', $where)->row();
+        $where2 = ['id_pesanan' => $id,];
+        $data['transaksi'] = $this->M_All->view_where('transaksi', $where2)->row();
+
+        $this->load->view('template/header');
+		$this->load->view('transaksi/cekPesanan', $data);
+		$this->load->view('template/footer');
+    }
+
+    public function pesananDiterima()
+    {
+
+        $data2 = [
+            'grup_pesanan'=> $this->input->post('setuju'),
+        ];
+
+        $where = [
+            'id_pesanan' => $this->input->post('id_pesanan'),
+
+        ];
+
+        // $this->M_All->update('transaksi', $where, $data);
+        $this->M_All->update('pesanan', $where, $data2);
+
+        redirect('user/pesanan');
     }
 }

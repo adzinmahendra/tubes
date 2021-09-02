@@ -55,6 +55,11 @@ class Konsumen extends CI_Controller {
         $this->load->view('admin/footer');
     }
 
+    public function proPesanan($id)
+    {
+        // code...
+    }
+
     public function pdf_pesanan()
     {
         $data['pesanan'] = $this->M_All->join_pesanan('pesanan', 'checkout')->result();
@@ -162,8 +167,34 @@ class Konsumen extends CI_Controller {
     public function prosesPesanan($id)
     {
         $data = array('id_pesanan' => $id, );
+        $data2 = ['grup_pesanan' => 1];
         $this->M_All->insert('transaksi', $data);
-        redirect('transaksi/penjualan');
+        $this->M_All->update('pesanan', $data, $data2);
+        redirect('konsumen/pesanan');
+    }
+
+    public function cekBuktiBayar($id)
+    {
+        $where = ['pesanan.id_pesanan' => $id,];
+        $where2 = ['id_pesanan' => $id,];
+        $data['pesanan'] = $this->M_All->join_pesanan_where('pesanan', 'checkout', $where)->result();
+        $data['transaksi'] = $this->M_All->view_where('transaksi', $where2)->row();
+        $this->load->view('admin/header');
+        $this->load->view('konsumen/resi', $data);
+        $this->load->view('admin/footer');
+    }
+
+    public function unggahResi()
+    {
+        $where = [
+            'id_pesanan' => $this->input->post('id_pesanan'),
+            ];
+        $data = array('resi' => $this->input->post('resi'), );
+        $data2 = ['grup_pesanan' => 3];
+        $this->M_All->update('transaksi', $where, $data);
+        $this->M_All->update('pesanan', $where, $data2);
+        redirect('konsumen/pesanan');
+
     }
 
 }

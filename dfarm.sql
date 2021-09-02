@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2021 at 04:24 AM
+-- Generation Time: Sep 02, 2021 at 09:08 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -34,6 +34,19 @@ CREATE TABLE `admin` (
   `gambar` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_depan`, `nama_belakang`, `gambar`, `id_user`) VALUES
+(3, 'Test', 'Tester', 'artworks-mL3QdlihUHNGuPBK-stnJBA-t500x500.jpg', 1),
+(4, 'Test', 'Tester', '', 1),
+(5, 'Test', 'Tester', '', 1),
+(6, 'Test', 'Tester', '', 1),
+(7, 'Test', 'Tester', '', 1),
+(8, 'Test', 'Tester', 'artworks-mL3QdlihUHNGuPBK-stnJBA-t500x500.jpg', 1),
+(9, 'Test', 'Tester', '', 1);
 
 -- --------------------------------------------------------
 
@@ -87,6 +100,13 @@ CREATE TABLE `cart` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id_cart`, `keterangan_cart`, `jumlah_bayar`, `jumlah_barang`, `size`, `id_transaksi`, `id_barang`, `email`, `id_user`) VALUES
+(9, 'beli', 1, 2, '', 1, 6, '', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -113,7 +133,8 @@ INSERT INTO `checkout` (`id_checkout`, `keterangan_checkout`, `email`, `tanggal`
 (2, '', 'qwe@gmail.com', '2021-08-03', 1, 143800, 5, 0, 2),
 (3, '', 'qwe@gmail.com', '2021-08-03', 2, 54900, 2, 0, 2),
 (4, '', 'qwe@gmail.com', '2021-08-09', 3, 34000, 1, 0, 2),
-(5, '', 'qwe@gmail.com', '2021-08-11', 4, 54900, 2, 0, 2);
+(5, '', 'qwe@gmail.com', '2021-08-11', 4, 54900, 2, 0, 2),
+(6, '', 'qwe@gmail.com', '2021-08-11', 0, 41800, 2, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -146,7 +167,8 @@ INSERT INTO `db_cart` (`id_db_cart`, `id_cart`, `keterangan_cart`, `jumlah_bayar
 (4, 5, 'beli', 1, 1, '', 1, 5, 2, '', 2),
 (5, 6, 'beli', 1, 1, '', 1, 5, 2, '', 3),
 (6, 7, 'beli', 1, 1, '', 1, 5, 2, '', 4),
-(7, 8, 'beli', 1, 1, '', 1, 6, 2, '', 4);
+(7, 8, 'beli', 1, 1, '', 1, 6, 2, '', 4),
+(8, 9, 'beli', 1, 2, '', 1, 6, 2, '', 0);
 
 -- --------------------------------------------------------
 
@@ -159,6 +181,20 @@ CREATE TABLE `distribusi` (
   `nama_distributor` varchar(255) NOT NULL,
   `keterangan_distributor` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gambar`
+--
+
+CREATE TABLE `gambar` (
+  `id_gambar` int(11) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `jenis_gambar` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `id_barang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -222,7 +258,7 @@ CREATE TABLE `konsumen` (
 --
 
 INSERT INTO `konsumen` (`id_konsumen`, `nama_depan`, `nama_belakang`, `keterangan_konsumen`, `alamat_konsumen`, `kota`, `no_telepon_konsumen`, `kode_pos`, `email`, `id_user`) VALUES
-(3, 'Annissa', 'Angela', '', 'Bandung', 'qwe', '082282710200', '39153', 'qwe@gmail.com', 2);
+(3, 'Annissa', 'Angela', '', 'Bandung', 'Bandung', '082282710200', '39153', 'qwe@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -368,7 +404,7 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id_pesanan`, `grup_pesanan`, `jumlah_bayar`, `jumlah_item`, `id_transaksi`, `id_user`, `email`, `tgl_pesan`) VALUES
-(1, 0, 143800, 5, 0, 2, 'qwe@gmail.com', '2021-08-03'),
+(1, 4, 143800, 5, 0, 2, 'qwe@gmail.com', '2021-08-03'),
 (2, 0, 54900, 2, 0, 2, 'qwe@gmail.com', '2021-08-03'),
 (3, 0, 34000, 1, 0, 2, 'qwe@gmail.com', '2021-08-09'),
 (4, 0, 54900, 2, 0, 2, 'qwe@gmail.com', '2021-08-11');
@@ -417,11 +453,19 @@ INSERT INTO `sumber` (`id_sumber`, `nama_sumber`, `alamat_sumber`, `no_telepon`)
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `keterangan_transaksi` varchar(255) NOT NULL,
+  `bukti_transaksi` varchar(255) NOT NULL,
   `id_market` int(11) NOT NULL,
   `id_distribusi` int(11) NOT NULL,
-  `id_pesanan` int(11) NOT NULL
+  `id_pesanan` int(11) NOT NULL,
+  `resi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `bukti_transaksi`, `id_market`, `id_distribusi`, `id_pesanan`, `resi`) VALUES
+(1, '', 0, 0, 1, '123123');
 
 -- --------------------------------------------------------
 
@@ -442,7 +486,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `email`) VALUES
-(1, 'admin', '202cb962ac59075b964b07152d234b70', 'admin', 'admin@mail.com'),
+(1, 'qory', '202cb962ac59075b964b07152d234b70', 'admin', 'admin@mail.com'),
 (2, 'qwe', '202cb962ac59075b964b07152d234b70', 'user', 'qwe@gmail.com');
 
 -- --------------------------------------------------------
@@ -455,15 +499,16 @@ CREATE TABLE `wishlist` (
   `id_wishlist` int(11) NOT NULL,
   `keterangan_wishlist` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `id_barang` int(11) NOT NULL
+  `id_barang` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `wishlist`
 --
 
-INSERT INTO `wishlist` (`id_wishlist`, `keterangan_wishlist`, `total`, `id_barang`) VALUES
-(1, 0, 1, 7);
+INSERT INTO `wishlist` (`id_wishlist`, `keterangan_wishlist`, `total`, `id_barang`, `id_user`) VALUES
+(1, 0, 1, 7, 0);
 
 --
 -- Indexes for dumped tables
@@ -511,6 +556,12 @@ ALTER TABLE `db_cart`
 --
 ALTER TABLE `distribusi`
   ADD PRIMARY KEY (`id_distribusi`);
+
+--
+-- Indexes for table `gambar`
+--
+ALTER TABLE `gambar`
+  ADD PRIMARY KEY (`id_gambar`);
 
 --
 -- Indexes for table `gudang`
@@ -623,7 +674,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `barang`
@@ -635,25 +686,31 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `db_cart`
 --
 ALTER TABLE `db_cart`
-  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_db_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `distribusi`
 --
 ALTER TABLE `distribusi`
   MODIFY `id_distribusi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gambar`
+--
+ALTER TABLE `gambar`
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `gudang`
@@ -731,7 +788,7 @@ ALTER TABLE `sumber`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

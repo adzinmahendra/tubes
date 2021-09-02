@@ -48,6 +48,33 @@
                                   <a href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                       <i class="fas fa-search fa-sm text-white-50"></i> Lihat Pesanan
                                   </a>
+                                  <?php if ($p->grup_pesanan == 0): ?>
+                                      <a href="<?= base_url() ?>index.php/konsumen/prosesPesanan/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+                                          <i class="fas fa-pen fa-sm text-white-50"></i> Proses Pesanan
+                                      </a>
+
+                                  <?php elseif ($p->grup_pesanan == 1): ?>
+                                      <a disabled href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm disabled">
+                                          <i class="fas fa-hourglass fa-sm text-white-50"></i> Menunggu Bukti Bayar
+                                      </a>
+                                  <?php elseif ($p->grup_pesanan == 2): ?>
+                                      <a href="<?= base_url() ?>index.php/konsumen/cekBuktiBayar/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+                                          <i class="fas fa-eye fa-sm text-white-50"></i> Lihat Bukti Bayar
+                                      </a>
+                                  <?php elseif ($p->grup_pesanan == 3): ?>
+                                      <a href="<?= base_url() ?>index.php/konsumen/cekBuktiBayar/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm disabled   ">
+                                          <i class="fas fa-hourglass fa-sm text-white-50"></i> Menunggu Penerimaan
+                                      </a>
+                                  <?php elseif ($p->grup_pesanan == 4): ?>
+                                      <a href="<?= base_url() ?>index.php/konsumen/cekBuktiBayar/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm disabled   ">
+                                          <i class="fas fa-check fa-sm text-white-50"></i> Pesanan Diterima Pelanggan
+                                      </a>
+                                  <?php else: ?>
+                                      <a disabled href="<?= base_url() ?>index.php/konsumen/lihatPesanan/<?= $p->id_pesanan ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm disabled">
+                                          <i class="fas fa-check fa-sm text-white-50"></i> Error
+                                      </a>
+
+                                  <?php endif; ?>
                               </td>
                           </tr>
                           <?php $no++; } ?>
@@ -63,7 +90,7 @@
                             </td>
                         </tr> -->
                     </tbody>
-                    
+
                 </table>
             </div>
         </div>

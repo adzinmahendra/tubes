@@ -18,10 +18,10 @@
                       <tr class="text-center">
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
-                        <th>Jumlah Barang</th>
+                        <th>Jumlah <br>Barang</th>
                         <th>Jumlah Harga</th>
                         <!-- <th>Status</th> -->
-                        <th>Action</th>
+                        <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -50,7 +50,21 @@
                             ha
                         </td> -->
                         <td class="product-name">
-                            <button>cek</button>
+                            <?php if ($w->grup_pesanan == 0): ?>
+                                <a href="#" class="btn btn-primary disabled">Menunggu Proses</a>
+                            <?php elseif ($w->grup_pesanan == 1): ?>
+                                <a href="<?= base_url() ?>index.php/user/uploadBukti/<?= $w->id_pesanan ?>" class="btn btn-warning">Unggah Bukti Bayar</a>
+                            <?php elseif ($w->grup_pesanan == 2): ?>
+                                <a href="<?= base_url() ?>index.php/user/uploadBukti/<?= $w->id_pesanan ?>" class="btn btn-warning disabled">Menunggu Dikirim</a>
+                            <?php elseif ($w->grup_pesanan == 3): ?>
+                                <a href="<?= base_url() ?>index.php/user/cekPesanan/<?= $w->id_pesanan ?>" class="btn btn-success">Pesanan Dikirim</a>
+                            <?php elseif ($w->grup_pesanan == 4): ?>
+                                <a href="<?= base_url() ?>index.php/user/" class="btn btn-success disabled">Selesai</a>
+                            <?php else: ?>
+                                <a href="#" class="btn btn-warning disabled">Bukti Bayar Telah Diunggah</a>
+
+                            <?php endif; ?>
+
                         </td>
                       </tr><!-- END TR-->
                   <?php } ?>
